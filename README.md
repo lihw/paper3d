@@ -18,6 +18,8 @@ The preferable develpoment platform is Windows 7 64bit with a discrete video car
 
 
 # Installation
+Use either `git clone https://github.com/lihw/paper3d.git <dir>;git checkout 0.91a` or download the zip file at [https://github.com/lihw/paper3d/archive/0.91a.zip](https://github.com/lihw/paper3d/archive/0.91a.zip), and then uncompress the zip file to any dir you want.
+
 Make sure [Tech](http://lihw.github.io/tech) is installed on your development platform.
 
 ## Windows 7

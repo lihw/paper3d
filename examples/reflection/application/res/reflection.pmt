@@ -1,0 +1,37 @@
+<material>
+  <shader>
+    <vs>
+      uniform mat4 MVP;
+
+      attribute mediump vec4 position;
+
+      void main()
+      {
+          gl_Position = MVP * vec4(position.xyz, 1.0);
+      }
+    </vs>
+    <fs>
+      precision mediump float;
+      
+      uniform sampler2D Reflection;
+      uniform float Blend;
+      uniform vec2 invViewport;
+      uniform vec3 Color;
+      
+      void main()
+      {
+           mediump vec2 coord = gl_FragCoord.xy * invViewport;
+           mediump vec4 reflection = texture2D(Reflection, coord);
+           gl_FragColor.rgb = mix(reflection.rgb, Color.rgb, Blend);
+           gl_FragColor.a = 1.0;
+      }
+    </fs>
+  </shader>
+  <parameters>
+    <parameter name="mvp" uniform="MVP" source="transform"/>
+    <parameter name="texture" uniform="Reflection" source="material"/>
+    <parameter name="blend" uniform="Blend" source="material"/>
+    <parameter name="inv-viewport" uniform="invViewport" source="material"/>
+    <parameter name="color" uniform="Color" source="material"/>
+  </parameters>
+</material>

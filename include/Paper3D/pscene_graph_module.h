@@ -1,0 +1,21 @@
+#ifndef PSCENE_GRAPH_MODULE_H
+#define PSCENE_GRAPH_MODULE_H
+#include "../../src/scene_graph/pnode.h"
+#include "../../src/scene_graph/pnodefactory.h"
+#include "../../src/scene_graph/prootnode.h"
+#include "../../src/scene_graph/pscene.h"
+#include "../../src/scene_graph/pscenemanager.h"
+#include "../../src/scene_graph/camera/pcamera.h"
+#include "../../src/scene_graph/camera/pcameramisc.h"
+#include "../../src/scene_graph/drawable/pbackground.h"
+#include "../../src/scene_graph/drawable/pbillboard.h"
+#include "../../src/scene_graph/drawable/pdrawable.h"
+#include "../../src/scene_graph/drawable/pskybox.h"
+#include "../../src/scene_graph/drawable/psprite.h"
+#include "../../src/scene_graph/drawable/psprite2d.h"
+#include "../../src/scene_graph/drawable/pwaterwave.h"
+#include "../../src/scene_graph/light/pabstractlight.h"
+#include "../../src/scene_graph/light/pdirectionallight.h"
+#include "../../src/scene_graph/light/ppointlight.h"
+#include "../../src/scene_graph/light/pspotlight.h"
+#endif

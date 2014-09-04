@@ -1,0 +1,17 @@
+const char MSVC2012SLN_STR[] = 
+"Microsoft Visual Studio Solution File, Format Version 12.00\n"
+"# Visual Studio 2012\n"
+"Project(\"{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}\") = \"%s\", \"%s.vcxproj\", \"{BDD09E6E-9DDC-4BAA-AF89-04DBB46FB191}\"\n"
+"EndProject\n"
+"Global\n"
+"	GlobalSection(SolutionConfigurationPlatforms) = preSolution\n"
+"		Debug|Win32 = Debug|Win32\n"
+"		Release|Win32 = Release|Win32\n"
+"	EndGlobalSection\n"
+"	GlobalSection(ProjectConfigurationPlatforms) = postSolution\n"
+"	EndGlobalSection\n"
+"	GlobalSection(SolutionProperties) = preSolution\n"
+"		HideSolutionNode = FALSE\n"
+"	EndGlobalSection\n"
+"EndGlobal\n"
+;

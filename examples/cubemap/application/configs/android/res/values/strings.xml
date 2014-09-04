@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">cubemap</string>
+    <string name="author">Hongwei Li</string>
+    <string name="description">Paper3D example application</string>
+    <string name="service_name">cubemap</string>
+    <string name="service_label">cubemap</string>
+    <string name="settings">Setting</string>
+    <string name="apk_name">cubemap</string>
+
+</resources>

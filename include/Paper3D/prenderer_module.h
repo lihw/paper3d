@@ -1,0 +1,22 @@
+#ifndef PRENDERER_MODULE_H
+#define PRENDERER_MODULE_H
+#include "../../src/renderer/geometry/pabstractgeometry.h"
+#include "../../src/renderer/geometry/pgeometrycube.h"
+#include "../../src/renderer/geometry/pgeometrymesh.h"
+#include "../../src/renderer/geometry/pgeometryplane.h"
+#include "../../src/renderer/geometry/pgeometrysphere.h"
+#include "../../src/renderer/material/pabstractrenderparameter.h"
+#include "../../src/renderer/material/pcameraparameter.h"
+#include "../../src/renderer/material/plightparameter.h"
+#include "../../src/renderer/material/pmaterial.h"
+#include "../../src/renderer/material/pmaterialparameter.h"
+#include "../../src/renderer/material/ptransformparameter.h"
+#include "../../src/renderer/queue/prenderdrawablequeue.h"
+#include "../../src/renderer/queue/prenderqueue.h"
+#include "../../src/renderer/prenderpass.h"
+#include "../../src/renderer/pshadowpass.h"
+#include "../../src/renderer/prendertarget.h"
+#include "../../src/renderer/prenderstate.h"
+#include "../../src/renderer/prendertransform.h"
+#include "../../src/renderer/prenderer.h"
+#endif

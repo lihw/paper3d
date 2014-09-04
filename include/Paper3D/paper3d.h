@@ -1,0 +1,5 @@
+#include "panimation_module.h"
+#include "peffect_module.h"
+#include "prenderer_module.h"
+#include "presource_module.h"
+#include "pscene_graph_module.h"

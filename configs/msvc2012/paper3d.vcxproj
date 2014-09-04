@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\animation\panimationinstance.cpp" />
+    <ClCompile Include="..\..\src\animation\panimationmanager.cpp" />
+    <ClCompile Include="..\..\src\animation\pkeyframe.cpp" />
+    <ClCompile Include="..\..\src\animation\pskeleton.cpp" />
+    <ClCompile Include="..\..\src\effect\pabstracteffect.cpp" />
+    <ClCompile Include="..\..\src\effect\peffectfactory.cpp" />
+    <ClCompile Include="..\..\src\effect\peffectglow.cpp" />
+    <ClCompile Include="..\..\src\renderer\geometry\pabstractgeometry.cpp" />
+    <ClCompile Include="..\..\src\renderer\geometry\pgeometrycube.cpp" />
+    <ClCompile Include="..\..\src\renderer\geometry\pgeometrymesh.cpp" />
+    <ClCompile Include="..\..\src\renderer\geometry\pgeometryplane.cpp" />
+    <ClCompile Include="..\..\src\renderer\geometry\pgeometrysphere.cpp" />
+    <ClCompile Include="..\..\src\renderer\material\pabstractrenderparameter.cpp" />
+    <ClCompile Include="..\..\src\renderer\material\pcameraparameter.cpp" />
+    <ClCompile Include="..\..\src\renderer\material\plightparameter.cpp" />
+    <ClCompile Include="..\..\src\renderer\material\pmaterial.cpp" />
+    <ClCompile Include="..\..\src\renderer\material\pmaterialparameter.cpp" />
+    <ClCompile Include="..\..\src\renderer\material\ptransformparameter.cpp" />
+    <ClCompile Include="..\..\src\renderer\prenderer.cpp" />
+    <ClCompile Include="..\..\src\renderer\prenderpass.cpp" />
+    <ClCompile Include="..\..\src\renderer\prenderstate.cpp" />
+    <ClCompile Include="..\..\src\renderer\prendertarget.cpp" />
+    <ClCompile Include="..\..\src\renderer\prendertransform.cpp" />
+    <ClCompile Include="..\..\src\renderer\pshadowpass.cpp" />
+    <ClCompile Include="..\..\src\renderer\queue\prenderdrawablequeue.cpp" />
+    <ClCompile Include="..\..\src\renderer\queue\prenderlightqueue.cpp" />
+    <ClCompile Include="..\..\src\renderer\queue\prenderqueue.cpp" />
+    <ClCompile Include="..\..\src\resource\cache\panimationloader.cpp" />
+    <ClCompile Include="..\..\src\resource\cache\pcacheobject.cpp" />
+    <ClCompile Include="..\..\src\resource\cache\pmaterialcache.cpp" />
+    <ClCompile Include="..\..\src\resource\cache\pmeshcache.cpp" />
+    <ClCompile Include="..\..\src\resource\cache\pmeshloader.cpp" />
+    <ClCompile Include="..\..\src\resource\cache\presourcecache.cpp" />
+    <ClCompile Include="..\..\src\resource\cache\ptexturecache.cpp" />
+    <ClCompile Include="..\..\src\resource\panimationresource.cpp" />
+    <ClCompile Include="..\..\src\resource\pframebuffer.cpp" />
+    <ClCompile Include="..\..\src\resource\pmaterialresource.cpp" />
+    <ClCompile Include="..\..\src\resource\pmesh.cpp" />
+    <ClCompile Include="..\..\src\resource\presourcemanager.cpp" />
+    <ClCompile Include="..\..\src\resource\presourceobject.cpp" />
+    <ClCompile Include="..\..\src\resource\ptexture.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\camera\pcamera.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\drawable\pbackground.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\drawable\pbillboard.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\drawable\pdrawable.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\drawable\pskybox.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\drawable\psprite.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\drawable\psprite2d.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\drawable\pwaterwave.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\light\pabstractlight.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\light\pdirectionallight.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\light\ppointlight.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\light\pspotlight.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\pnode.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\pnodefactory.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\prootnode.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\pscene.cpp" />
+    <ClCompile Include="..\..\src\scene_graph\pscenemanager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\animation\panimationinstance.h" />
+    <ClInclude Include="..\..\src\animation\panimationmanager.h" />
+    <ClInclude Include="..\..\src\animation\pkeyframe.h" />
+    <ClInclude Include="..\..\src\animation\pskeleton.h" />
+    <ClInclude Include="..\..\src\effect\pabstracteffect.h" />
+    <ClInclude Include="..\..\src\effect\peffectblendmaterial_private.h" />
+    <ClInclude Include="..\..\src\effect\peffectfactory.h" />
+    <ClInclude Include="..\..\src\effect\peffectglow.h" />
+    <ClInclude Include="..\..\src\renderer\geometry\pabstractgeometry.h" />
+    <ClInclude Include="..\..\src\renderer\geometry\pgeometrycube.h" />
+    <ClInclude Include="..\..\src\renderer\geometry\pgeometrymesh.h" />
+    <ClInclude Include="..\..\src\renderer\geometry\pgeometryplane.h" />
+    <ClInclude Include="..\..\src\renderer\geometry\pgeometrysphere.h" />
+    <ClInclude Include="..\..\src\renderer\material\pabstractrenderparameter.h" />
+    <ClInclude Include="..\..\src\renderer\material\pcameraparameter.h" />
+    <ClInclude Include="..\..\src\renderer\material\plightparameter.h" />
+    <ClInclude Include="..\..\src\renderer\material\pmaterial.h" />
+    <ClInclude Include="..\..\src\renderer\material\pmaterialparameter.h" />
+    <ClInclude Include="..\..\src\renderer\material\ptransformparameter.h" />
+    <ClInclude Include="..\..\src\renderer\prenderer.h" />
+    <ClInclude Include="..\..\src\renderer\prenderpass.h" />
+    <ClInclude Include="..\..\src\renderer\prenderstate.h" />
+    <ClInclude Include="..\..\src\renderer\prendertarget.h" />
+    <ClInclude Include="..\..\src\renderer\prendertransform.h" />
+    <ClInclude Include="..\..\src\renderer\pshadowpass.h" />
+    <ClInclude Include="..\..\src\renderer\queue\prenderdrawablequeue.h" />
+    <ClInclude Include="..\..\src\renderer\queue\prenderlightqueue.h" />
+    <ClInclude Include="..\..\src\renderer\queue\prenderqueue.h" />
+    <ClInclude Include="..\..\src\resource\cache\panimationloader_private.h" />
+    <ClInclude Include="..\..\src\resource\cache\pcacheobject_private.h" />
+    <ClInclude Include="..\..\src\resource\cache\pmaterialcache_private.h" />
+    <ClInclude Include="..\..\src\resource\cache\pmeshcache_private.h" />
+    <ClInclude Include="..\..\src\resource\cache\pmeshloader_private.h" />
+    <ClInclude Include="..\..\src\resource\cache\presourcecache_private.h" />
+    <ClInclude Include="..\..\src\resource\cache\ptexturecache_private.h" />
+    <ClInclude Include="..\..\src\resource\panimationresource.h" />
+    <ClInclude Include="..\..\src\resource\pframebuffer.h" />
+    <ClInclude Include="..\..\src\resource\pmaterialresource.h" />
+    <ClInclude Include="..\..\src\resource\pmesh.h" />
+    <ClInclude Include="..\..\src\resource\presourcemanager.h" />
+    <ClInclude Include="..\..\src\resource\presourceobject.h" />
+    <ClInclude Include="..\..\src\resource\ptexture.h" />
+    <ClInclude Include="..\..\src\scene_graph\camera\pcamera.h" />
+    <ClInclude Include="..\..\src\scene_graph\drawable\pbackground.h" />
+    <ClInclude Include="..\..\src\scene_graph\drawable\pbillboard.h" />
+    <ClInclude Include="..\..\src\scene_graph\drawable\pdrawable.h" />
+    <ClInclude Include="..\..\src\scene_graph\drawable\pskybox.h" />
+    <ClInclude Include="..\..\src\scene_graph\drawable\psprite.h" />
+    <ClInclude Include="..\..\src\scene_graph\drawable\psprite2d.h" />
+    <ClInclude Include="..\..\src\scene_graph\drawable\pwaterwave.h" />
+    <ClInclude Include="..\..\src\scene_graph\light\pabstractlight.h" />
+    <ClInclude Include="..\..\src\scene_graph\light\pdirectionallight.h" />
+    <ClInclude Include="..\..\src\scene_graph\light\ppointlight.h" />
+    <ClInclude Include="..\..\src\scene_graph\light\pspotlight.h" />
+    <ClInclude Include="..\..\src\scene_graph\pnode.h" />
+    <ClInclude Include="..\..\src\scene_graph\pnodefactory.h" />
+    <ClInclude Include="..\..\src\scene_graph\prootnode.h" />
+    <ClInclude Include="..\..\src\scene_graph\pscene.h" />
+    <ClInclude Include="..\..\src\scene_graph\pscenemanager.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{77EFBF95-FF3A-4864-A910-F0F75C474100}</ProjectGuid>
+    <RootNamespace>cpptest</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectName>paper3d</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>11.0.60315.1</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\..\lib\msvc2012\Debug\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\..\lib\msvc2012\Release\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(FITECH)\include;..\..\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(FITECH)\include;..\..\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName).lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

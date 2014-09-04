@@ -1,21 +1,13 @@
-# Compiled Object files
-*.slo
-*.lo
-*.o
+*.swp
+# Ignore msvc 2012 files
+*.suo
 *.obj
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
+*.pdb
 *.exe
-*.out
-*.app
+*.ilk
+# Ignore OSX intermediate files
+.DS_Store
+# Ignore user-specific XCode files
+*.xcworkspace
+*.pbxuser
+xcuserdata

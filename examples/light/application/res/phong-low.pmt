@@ -1,0 +1,174 @@
+<material>
+  <parameters>
+    <parameter name="mvp" uniform="MVP" source="transform"/>
+    <parameter name="normal" uniform="NormalMatrix" source="transform"/>
+    <parameter name="world" uniform="MV" source="transform"/>
+    <parameter name="position" uniform="CameraPosition" source="camera"/>
+    <parameter name="albedo" uniform="Albedo" source="material"/>
+    <parameter name="shininess" uniform="Shininess" source="material"/>
+  
+    <parameter name="color" uniform="PointLights[0].color" source="light" type="point" index="0"/>
+    <parameter name="intensity" uniform="PointLights[0].intensity" source="light" type="point" index="0"/>
+    <parameter name="position" uniform="PointLights[0].position" source="light" type="point" index="0"/>
+    <parameter name="range" uniform="PointLights[0].range" source="light" type="point" index="0"/>
+  
+    <parameter name="color" uniform="DirectionalLight.color" source="light" type="directional" index="0"/>
+    <parameter name="intensity" uniform="DirectionalLight.intensity" source="light" type="directional" index="0"/>
+    <parameter name="direction" uniform="DirectionalLight.direction" source="light" type="directional" index="0"/>
+  
+    <parameter name="color" uniform="SpotLight.color" source="light" type="spot" index="0"/>
+    <parameter name="intensity" uniform="SpotLight.intensity" source="light" type="spot" index="0"/>
+    <parameter name="position" uniform="SpotLight.position" source="light" type="spot" index="0"/>
+    <parameter name="exponent" uniform="SpotLight.spotExponent" source="light" type="spot" index="0"/>
+    <parameter name="direction" uniform="SpotLight.spotDirection" source="light" type="spot" index="0"/>
+    <parameter name="cutoff" uniform="SpotLight.spotCosCutoff" source="light" type="spot" index="0"/>
+  </parameters>
+  <shader>
+    <vs>
+      precision mediump float;
+      
+      struct SpotLightStruct
+      {
+          vec3  color;
+          float intensity;
+          vec3  position;
+          float spotExponent;
+          vec3  spotDirection;
+          float spotCosCutoff; // (range: (0.0,1.0)
+      };
+      
+      struct DirectionalLightStruct
+      {
+          vec3  color;
+          float intensity;
+          vec3  direction;
+      };
+      
+      struct PointLightStruct
+      {
+          vec3  color;
+          float intensity;
+          vec3  position;
+          float range;
+      };
+
+      uniform mat4 MVP;
+      uniform mat4 MV;
+      uniform mat3 NormalMatrix;
+
+      uniform PointLightStruct PointLights[1];
+      uniform DirectionalLightStruct DirectionalLight;
+      uniform SpotLightStruct SpotLight;
+      uniform vec3 Albedo;
+      uniform vec3 CameraPosition;
+      uniform float Shininess;
+      
+      attribute vec3 position;
+      attribute vec3 normal;
+      
+      varying mediump vec3 vColor;
+      
+      
+      void computePointLight(const in PointLightStruct light,
+                             const in float shininess,
+                             const in vec3 worldPosition,
+                             const in vec3 worldNormal,
+                             const in vec3 eyeDir,
+      		             out float diffuse,
+                             out vec3 specular)
+      {
+          vec3 lightDir = worldPosition - light.position;
+          float d = length(lightDir);
+          lightDir = normalize(lightDir);
+          vec3 H = normalize(eyeDir - lightDir);
+          float nDotL = max(0.0, dot(worldNormal, -lightDir)); 
+          float nDotHV = max(0.0, dot(worldNormal, H));
+      
+          diffuse = nDotL * step(d, light.range) * light.intensity; 
+          specular = light.color * light.intensity * pow(nDotHV, shininess) * step(d, light.range);
+      }
+      
+      void computeDirectionalLight(const in DirectionalLightStruct light,
+                                   const in float shininess,
+      			           const in vec3 worldNormal, 
+      			           const in vec3 eyeDir,
+                                   out float diffuse,
+                                   out vec3 specular)
+      
+      {
+          vec3 lightDir = normalize(light.direction);
+          float nDotL = max(0.0, dot(worldNormal, -lightDir));
+          vec3 H = normalize(eyeDir - lightDir);
+          float nDotHV = max(0.0, dot(worldNormal, H));
+      
+          diffuse = nDotL * light.intensity; 
+          specular = light.color * light.intensity * pow(nDotHV, shininess);
+      }
+      
+      void computeSpotLight(const in SpotLightStruct light,
+                            const in float shininess,
+                            const in vec3 worldPosition,
+                            const in vec3 worldNormal,
+                            const in vec3 eyeDir,
+                            out float diffuse,
+                            out vec3 specular)
+      {
+          vec3 lightDir = worldPosition - light.position;
+          float d = length(lightDir);
+          lightDir = normalize(lightDir);
+      
+          diffuse = 0.0;
+          specular = vec3(0.0);
+      
+          float nDotL = max(0.0, dot(worldNormal, -lightDir));
+          if (nDotL > 0.0)
+          {
+              float spotEffect = dot(normalize(light.spotDirection), lightDir);
+              if (spotEffect > light.spotCosCutoff)
+              {
+                  spotEffect = pow(spotEffect, light.spotExponent);
+      
+                  diffuse = light.intensity * nDotL * spotEffect;
+      
+                  vec3 H = normalize(eyeDir - lightDir);
+                  float nDotHV = max(0.0, dot(worldNormal, H));
+                  specular = light.color * light.intensity * pow(nDotHV, shininess) * spotEffect;
+              }
+          }
+      }
+      
+      
+      void main()
+      {
+          gl_Position = MVP * vec4(position, 1);
+          vec3 pos = (MV * vec4(position, 1)).xyz;
+
+          mediump float diffuse;
+          mediump vec3 specular;
+          
+          vColor = vec3(0.0);
+          mediump vec3 n = normalize(NormalMatrix * normal);
+          mediump vec3 eyeDir = normalize(CameraPosition - pos);
+      
+          computeDirectionalLight(DirectionalLight, Shininess, n, eyeDir, diffuse, specular);
+          vColor.rgb = Albedo * diffuse + specular;
+          
+          computePointLight(PointLights[0], Shininess, pos, n, eyeDir, diffuse, specular);
+          vColor.rgb += Albedo * diffuse + specular;
+          
+          computeSpotLight(SpotLight, Shininess, pos, n, eyeDir, diffuse, specular);
+          vColor.rgb += Albedo * diffuse + specular;
+      }
+    </vs>
+    <fs>
+      precision mediump float;
+
+      varying mediump vec3 vColor;
+      
+      void main()
+      {
+          gl_FragColor = vec4(vColor, 1);
+      }
+    </fs>
+  </shader>
+</material>

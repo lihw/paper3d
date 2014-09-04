@@ -1,0 +1,34 @@
+<material>
+  <shader>
+    <vs>
+      uniform mat4 MVP;
+
+      attribute mediump vec4 position;
+      attribute mediump vec4 texcoord0;
+
+      varying mediump vec4 vTexCoord;
+
+      void main()
+      {
+          gl_Position = MVP * position;
+          vTexCoord = texcoord0;
+      }
+    </vs>
+    <fs>
+      precision mediump float;
+      
+      uniform sampler2D Texture;
+      
+      varying mediump vec4 vTexCoord;
+      
+      void main()
+      {
+          gl_FragColor = texture2D(Texture, vTexCoord.xy);
+      }
+    </fs>
+  </shader>
+  <parameters>
+    <parameter name="mvp" uniform="MVP" source="transform"/>
+    <parameter name="texture" uniform="Texture" source="material"/>
+  </parameters>
+</material>

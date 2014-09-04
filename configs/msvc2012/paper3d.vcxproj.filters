@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="resource">
+      <UniqueIdentifier>{d8a149ff-b6b0-4a42-bde3-5018afe050b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene_graph">
+      <UniqueIdentifier>{01506448-3c7c-403e-be7b-2628918b415d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="animation">
+      <UniqueIdentifier>{d642b8fb-d21b-4f58-b36f-0592be6a10e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render">
+      <UniqueIdentifier>{803407f3-977e-4474-90aa-fe4b90099a52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="effect">
+      <UniqueIdentifier>{1c231a4f-f039-45bc-bc5a-f0b017be60a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render\queue">
+      <UniqueIdentifier>{89fa543c-f81a-44c9-87fb-26316ffdbae6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render\geometry">
+      <UniqueIdentifier>{2a4731ba-15ea-41a1-b364-ca83c79b1bab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="render\material">
+      <UniqueIdentifier>{151275c1-42f3-4d2c-91e5-bc80dafbab9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene_graph\drawable">
+      <UniqueIdentifier>{ad6e9366-23ed-4857-b56e-6772ae4c6ca0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene_graph\camera">
+      <UniqueIdentifier>{b55ea81d-7648-41b3-a1c5-8dbbe583eba7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene_graph\light">
+      <UniqueIdentifier>{c7f99290-7190-4bf5-ad09-b44fd2d7edac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource\cache">
+      <UniqueIdentifier>{4c17f3e2-7325-4a32-b9ec-17f1860703e2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\animation\panimationinstance.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\animation\panimationmanager.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\animation\pkeyframe.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\animation\pskeleton.cpp">
+      <Filter>animation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\effect\pabstracteffect.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\effect\peffectfactory.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\effect\peffectglow.cpp">
+      <Filter>effect</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\prenderer.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\prenderpass.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\prenderstate.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\prendertarget.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\prendertransform.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\geometry\pabstractgeometry.cpp">
+      <Filter>render\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\geometry\pgeometrycube.cpp">
+      <Filter>render\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\geometry\pgeometrymesh.cpp">
+      <Filter>render\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\geometry\pgeometryplane.cpp">
+      <Filter>render\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\geometry\pgeometrysphere.cpp">
+      <Filter>render\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\queue\prenderdrawablequeue.cpp">
+      <Filter>render\queue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\queue\prenderlightqueue.cpp">
+      <Filter>render\queue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\queue\prenderqueue.cpp">
+      <Filter>render\queue</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\material\pabstractrenderparameter.cpp">
+      <Filter>render\material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\material\pcameraparameter.cpp">
+      <Filter>render\material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\material\plightparameter.cpp">
+      <Filter>render\material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\material\pmaterial.cpp">
+      <Filter>render\material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\material\pmaterialparameter.cpp">
+      <Filter>render\material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\material\ptransformparameter.cpp">
+      <Filter>render\material</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\pnode.cpp">
+      <Filter>scene_graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\pnodefactory.cpp">
+      <Filter>scene_graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\prootnode.cpp">
+      <Filter>scene_graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\pscene.cpp">
+      <Filter>scene_graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\pscenemanager.cpp">
+      <Filter>scene_graph</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\drawable\pbackground.cpp">
+      <Filter>scene_graph\drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\drawable\pbillboard.cpp">
+      <Filter>scene_graph\drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\drawable\pdrawable.cpp">
+      <Filter>scene_graph\drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\drawable\pskybox.cpp">
+      <Filter>scene_graph\drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\drawable\psprite.cpp">
+      <Filter>scene_graph\drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\drawable\pwaterwave.cpp">
+      <Filter>scene_graph\drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\camera\pcamera.cpp">
+      <Filter>scene_graph\camera</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\light\pabstractlight.cpp">
+      <Filter>scene_graph\light</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\light\pdirectionallight.cpp">
+      <Filter>scene_graph\light</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\light\ppointlight.cpp">
+      <Filter>scene_graph\light</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\light\pspotlight.cpp">
+      <Filter>scene_graph\light</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\resource\panimationresource.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\resource\pframebuffer.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\resource\pmaterialresource.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\resource\pmesh.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\resource\presourcemanager.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\resource\presourceobject.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\resource\ptexture.cpp">
+      <Filter>resource</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\resource\cache\panimationloader.cpp">
+      <Filter>resource\cache</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\resource\cache\pcacheobject.cpp">
+      <Filter>resource\cache</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\resource\cache\pmaterialcache.cpp">
+      <Filter>resource\cache</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\resource\cache\pmeshcache.cpp">
+      <Filter>resource\cache</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\resource\cache\pmeshloader.cpp">
+      <Filter>resource\cache</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\resource\cache\presourcecache.cpp">
+      <Filter>resource\cache</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\resource\cache\ptexturecache.cpp">
+      <Filter>resource\cache</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\scene_graph\drawable\psprite2d.cpp">
+      <Filter>scene_graph\drawable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\renderer\pshadowpass.cpp">
+      <Filter>render</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\animation\panimationinstance.h">
+      <Filter>animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\animation\panimationmanager.h">
+      <Filter>animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\animation\pkeyframe.h">
+      <Filter>animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\animation\pskeleton.h">
+      <Filter>animation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\effect\pabstracteffect.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\effect\peffectblendmaterial_private.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\effect\peffectfactory.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\effect\peffectglow.h">
+      <Filter>effect</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\prenderer.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\prenderpass.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\prenderstate.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\prendertarget.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\prendertransform.h">
+      <Filter>render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\geometry\pabstractgeometry.h">
+      <Filter>render\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\geometry\pgeometrycube.h">
+      <Filter>render\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\geometry\pgeometrymesh.h">
+      <Filter>render\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\geometry\pgeometryplane.h">
+      <Filter>render\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\geometry\pgeometrysphere.h">
+      <Filter>render\geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\queue\prenderdrawablequeue.h">
+      <Filter>render\queue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\queue\prenderlightqueue.h">
+      <Filter>render\queue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\queue\prenderqueue.h">
+      <Filter>render\queue</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\material\pabstractrenderparameter.h">
+      <Filter>render\material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\material\pcameraparameter.h">
+      <Filter>render\material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\material\plightparameter.h">
+      <Filter>render\material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\material\pmaterial.h">
+      <Filter>render\material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\material\pmaterialparameter.h">
+      <Filter>render\material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\material\ptransformparameter.h">
+      <Filter>render\material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\pnode.h">
+      <Filter>scene_graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\pnodefactory.h">
+      <Filter>scene_graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\prootnode.h">
+      <Filter>scene_graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\pscene.h">
+      <Filter>scene_graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\pscenemanager.h">
+      <Filter>scene_graph</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\drawable\pbackground.h">
+      <Filter>scene_graph\drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\drawable\pbillboard.h">
+      <Filter>scene_graph\drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\drawable\pdrawable.h">
+      <Filter>scene_graph\drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\drawable\pskybox.h">
+      <Filter>scene_graph\drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\drawable\psprite.h">
+      <Filter>scene_graph\drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\drawable\pwaterwave.h">
+      <Filter>scene_graph\drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\camera\pcamera.h">
+      <Filter>scene_graph\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\light\pabstractlight.h">
+      <Filter>scene_graph\light</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\light\pdirectionallight.h">
+      <Filter>scene_graph\light</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\light\ppointlight.h">
+      <Filter>scene_graph\light</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\light\pspotlight.h">
+      <Filter>scene_graph\light</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\resource\panimationresource.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\resource\pframebuffer.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\resource\pmaterialresource.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\resource\pmesh.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\resource\presourcemanager.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\resource\presourceobject.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\resource\ptexture.h">
+      <Filter>resource</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\resource\cache\panimationloader_private.h">
+      <Filter>resource\cache</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\resource\cache\pcacheobject_private.h">
+      <Filter>resource\cache</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\resource\cache\pmaterialcache_private.h">
+      <Filter>resource\cache</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\resource\cache\pmeshcache_private.h">
+      <Filter>resource\cache</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\resource\cache\pmeshloader_private.h">
+      <Filter>resource\cache</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\resource\cache\presourcecache_private.h">
+      <Filter>resource\cache</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\resource\cache\ptexturecache_private.h">
+      <Filter>resource\cache</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\scene_graph\drawable\psprite2d.h">
+      <Filter>scene_graph\drawable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\renderer\pshadowpass.h">
+      <Filter>render</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

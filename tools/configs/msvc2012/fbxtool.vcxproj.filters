@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="mesh">
+      <UniqueIdentifier>{8818e0ea-f639-43a9-989a-6876fce78d81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="scene">
+      <UniqueIdentifier>{4149f2de-612a-4eb3-a93f-f06652aea776}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="project">
+      <UniqueIdentifier>{1bd65159-c83c-4d1c-895a-fe421ecfcf5d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\fbxtool\src\mesh\mesh.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\fbxtool\src\mesh\meshconverter.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\fbxtool\src\mesh\meshexporter.cpp">
+      <Filter>mesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\fbxtool\src\project\material.cpp">
+      <Filter>project</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\fbxtool\src\scene\scene.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\fbxtool\src\scene\sceneconverter.cpp">
+      <Filter>scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\fbxtool\src\assetconverter.cpp" />
+    <ClCompile Include="..\..\fbxtool\src\fbxtool.cpp" />
+    <ClCompile Include="..\..\fbxtool\src\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\fbxtool\src\mesh\mesh.h">
+      <Filter>mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\fbxtool\src\mesh\meshconverter.h">
+      <Filter>mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\fbxtool\src\mesh\meshexporter.h">
+      <Filter>mesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\fbxtool\src\scene\scene.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\fbxtool\src\scene\sceneconverter.h">
+      <Filter>scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\fbxtool\src\assetconverter.h" />
+    <ClInclude Include="..\..\fbxtool\src\fbxtool.h" />
+  </ItemGroup>
+</Project>

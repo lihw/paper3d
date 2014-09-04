@@ -1,0 +1,124 @@
+<material>
+  <parameters>
+    <parameter name="color" uniform="DirectionalLight.color" source="light" type="directional" index="0"/>
+    <parameter name="intensity" uniform="DirectionalLight.intensity" source="light" type="directional" index="0"/>
+    <parameter name="direction" uniform="DirectionalLight.direction" source="light" type="directional" index="0"/>
+
+
+    <parameter name="mvp" uniform="MVP" source="transform"/>
+    <parameter name="normal" uniform="NormalMatrix" source="transform"/>
+    <parameter name="mv" uniform="MV" source="transform"/>
+    <parameter name="position" uniform="CameraPosition" source="camera"/>
+
+    <parameter name="texture" uniform="Texture" source="material"/>
+    <parameter name="normal_texture" uniform="NormalTexture" source="material"/>
+    <parameter name="shininess" uniform="Shininess" source="material"/>
+
+  </parameters>
+  <shader>
+    <vs>
+      precision mediump float;
+
+      attribute mediump vec4 position;
+      attribute mediump vec3 normal;
+      attribute mediump vec4 texcoord0;
+      attribute mediump vec3 tangent;
+      attribute mediump vec3 binormal;
+
+
+      varying mediump vec4 vTexCoord;
+      varying mediump vec3 vLightDir;
+      varying mediump vec3 vEyeDir;
+
+      struct DirectionalLightStruct
+      {
+          vec3  color;
+          float intensity;
+          vec3  direction;
+      };
+
+      uniform mat4 MVP;
+      uniform mat4 MV;
+      uniform mat3 NormalMatrix;
+
+      uniform DirectionalLightStruct DirectionalLight;
+      uniform vec3 CameraPosition;
+
+      void main()
+      {
+          gl_Position = MVP * position;
+          vTexCoord = texcoord0;
+
+          vec3 pos = (MV * position).xyz;
+
+          mediump float diffuse;
+          mediump vec3 specular;
+          
+          mediump vec3 t = normalize(NormalMatrix * tangent);
+          mediump vec3 b = normalize(NormalMatrix * binormal);
+          mediump vec3 n = normalize(NormalMatrix * normal);
+      
+          mediump vec3 eyeDir = CameraPosition - pos;
+
+          vLightDir = vec3(dot(t, DirectionalLight.direction), dot(b, DirectionalLight.direction), dot(n, DirectionalLight.direction));
+          vEyeDir   = vec3(dot(t, eyeDir), dot(b, eyeDir), dot(n, eyeDir));
+      }
+    </vs>
+    <fs>
+      precision mediump float;
+      
+      uniform sampler2D Texture;
+      uniform sampler2D NormalTexture;
+      struct DirectionalLightStruct
+      {
+          vec3  color;
+          float intensity;
+          vec3  direction;
+      };
+
+      uniform DirectionalLightStruct DirectionalLight;
+      uniform float Shininess;
+      
+      varying mediump vec4 vTexCoord;
+      varying mediump vec3 vLightDir;
+      varying mediump vec3 vEyeDir;
+
+      void computeDirectionalLight(const in float intensity,
+                                   const in vec3 color,
+                                   const in float shininess,
+      			           const in vec3 normal, 
+				   const in vec3 lightDir,
+      			           const in vec3 eyeDir,
+                                   out float diffuse,
+                                   out vec3 specular)
+      {
+          float nDotL = max(0.0, dot(normal, -lightDir));
+          vec3 H = normalize(eyeDir - lightDir);
+          float nDotHV = max(0.0, dot(normal, H));
+      
+          diffuse = nDotL * intensity; 
+          specular = pow(nDotHV, shininess) * intensity * color;
+      }
+      
+      void main()
+      {
+          vec4 albedo = texture2D(Texture, vTexCoord.xy);
+          vec4 normal = texture2D(NormalTexture, vTexCoord.xy);
+          
+          mediump float diffuse;
+          mediump vec3 specular;
+          computeDirectionalLight(DirectionalLight.intensity,
+                                  DirectionalLight.color,
+                                  Shininess,
+                                  (normal.rgb - vec3(0.5)) * 2.0,
+				  normalize(vLightDir),
+                                  normalize(vEyeDir),
+                                  diffuse,
+                                  specular);
+
+          gl_FragColor.rgb = albedo.rgb * max(0.9, diffuse) + specular;
+          gl_FragColor.a   = 1.0;
+      }
+    </fs>
+  </shader>
+</material>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">normalmap</string>
+    <string name="author">Future Interface</string>
+    <string name="description">"NormalMap" example</string>
+    <string name="service_name">normalmap</string>
+    <string name="service_label">normalmap</string>
+    <string name="settings">Setting</string>
+    <string name="apk_name">NormalMap</string>
+
+</resources>

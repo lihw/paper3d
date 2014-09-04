@@ -1,0 +1,37 @@
+<material>
+  <shader>
+    <vs>
+      attribute mediump vec3 position;
+      void main()
+      {
+          gl_Position = vec4(position, 1);
+      }
+    </vs>
+    <fs>
+      precision mediump float;
+      uniform sampler2D Texture;
+      uniform vec2 InvViewport;
+      uniform int Size;
+      uniform int Step;
+      void main()
+      {
+          vec4 color = vec4(0);
+	  for (int dx = -Size / 2; dx &lt;= Size / 2; ++dx)
+          {
+              vec2 coord = (gl_FragCoord.xy + vec2(float(dx * Step), 0.0)) * InvViewport;
+              color += texture2D(Texture, coord);
+          }
+	  color /= float(Size);
+          gl_FragColor = color;
+      }
+    </fs>
+  </shader>
+  <parameters>
+    <parameter name="texture" uniform="Texture" source="material"/>
+    <parameter name="size" uniform="Size" source="material"/>
+    <parameter name="step" uniform="Step" source="material"/>
+    <parameter name="inversed-viewport" uniform="InvViewport" source="material"/>
+  </parameters>
+</material>
+
+

@@ -1,0 +1,1 @@
+#include "../../src/resource/panimationresource.h"

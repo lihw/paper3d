@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">network</string>
+    <string name="author">Future Interface</string>
+    <string name="description">"Network" example</string>
+    <string name="service_name">network</string>
+    <string name="service_label">network</string>
+    <string name="settings">Setting</string>
+    <string name="apk_name">Network</string>
+
+</resources>

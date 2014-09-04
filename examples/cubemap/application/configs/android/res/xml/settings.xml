@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/settings" android:key="wallpaper_settings">
+    <Preference
+		android:summary="Future Interface 2012-2014"
+		android:title="About us"
+		android:key="about_us"
+		/>
+</PreferenceScreen>

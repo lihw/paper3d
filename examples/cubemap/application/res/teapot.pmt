@@ -1,0 +1,44 @@
+<material>
+  <shader>
+    <vs>
+      uniform mat4 MVP;
+      uniform mat3 MV;
+      uniform vec3 CameraPosition;
+      
+      attribute mediump vec4 position;
+      attribute mediump vec3 normal;
+    
+      varying mediump vec3 vNormal;
+      varying mediump vec3 vEye;
+      
+      void main()
+      {
+          gl_Position = MVP * position;
+          vEye = CameraPosition - position.xyz;
+          vNormal = (MV * normal).xyz;
+      }
+    </vs>
+    <fs>
+      precision mediump float;
+      varying vec3 vNormal;
+      varying vec3 vEye;
+      
+      uniform samplerCube CubemapTexture;
+      
+      void main()
+      {
+          vec3 e = normalize(vEye);
+          vec3 n = normalize(vNormal);
+          vec3 r = reflect(e, n);
+          gl_FragColor = textureCube(CubemapTexture, r);
+          gl_FragColor.a = 1.0;
+      }
+    </fs>
+  </shader>
+  <parameters>
+    <parameter name="mvp" uniform="MVP" source="transform"/>
+    <parameter name="normal" uniform="MV" source="transform"/>
+    <parameter name="position" uniform="CameraPosition" source="camera"/>
+    <parameter name="envmap" uniform="CubemapTexture" source="material"/>
+  </parameters>
+</material>

@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\androidmanifestxml.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\androidmk.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\antproperties.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\applicationmk.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\bg_d_0png.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\buildbat.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\buildxml.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\caopmh.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\cao_d_0png.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\floorpmh.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\floor_d_0png.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\headers.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\iconpng.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\maincpp.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\mainxml.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\mogupmh.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\mogupng.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\msvc2012sln.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\msvc2012vcxproj.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\msvc2012vcxprojuser.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\mycontextcpp.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\mycontexth.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\myscenecpp.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\mysceneh.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\pactivityjava.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\paper3djava.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\pcontextjava.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\pmaincpp.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\pnativelibraryjava.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\proguardcfg.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\projectproperties.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\pviewjava.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\scenepsc.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\stringsxml.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\texturepmt.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\waterpmh.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\waterpng.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\androidmanifestxml.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\androidmk.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\antproperties.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\applicationmk.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\bg_d_0png.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\buildbat.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\buildxml.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\caopmh.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\cao_d_0png.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\floorpmh.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\floor_d_0png.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\glwallpaperservicejava.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\headers.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\iconpng.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\maincpp.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\mainxml.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\mogupmh.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\mogupng.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\msvc2012sln.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\msvc2012vcxproj.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\msvc2012vcxprojuser.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\mycontextcpp.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\mycontexth.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\myscenecpp.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\mysceneh.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\paper3dwallpaperjava.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\paper3dwallpapersettingsjava.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\pcontextjava.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\pglwallpaperservicejava.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\pmaincpp.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\pnativelibraryjava.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\proguardcfg.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\projectproperties.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\scenepsc.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\settingsxml.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\stringsxml.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\texturepmt.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\wallpaper_settingsxml.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\waterpmh.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\waterpng.h" />
+    <ClInclude Include="..\..\makeproject\pmake\makeproject.h" />
+    <ClInclude Include="..\..\makeproject\pmake\project.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\makeproject\pmake\main.cpp" />
+    <ClCompile Include="..\..\makeproject\pmake\makeproject.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{8670270F-B10B-45B7-BFEE-E1582479EFE6}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>ObjcConverter</RootNamespace>
+    <ProjectName>pmake</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)..\3rdparty\assimp\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\3rdparty\assimp\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>..\..\bin\msvc2012\</OutDir>
+    <IntDir>$(Configuration)\makeproject\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(ProjectDir)..\3rdparty\assimp\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\3rdparty\assimp\lib;$(LibraryPath)</LibraryPath>
+    <OutDir>..\..\bin\msvc2012\</OutDir>
+    <IntDir>$(Configuration)\makeproject\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\common\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>common.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\3rdparty\assimp\lib;..\..\common\lib\$(Configuration)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(ProjectDir)..\..\3rdparty\assimp\lib\Assimp32.dll $(OutDir)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\common\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>assimp.lib;common.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\common\lib\$(Configuration)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(ProjectDir)..\..\3rdparty\assimp\lib\Assimp32.dll $(OutDir)</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

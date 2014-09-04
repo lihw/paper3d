@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+        android:title="@string/settings" android:key="wallpaper_settings">
+    <Preference
+		android:summary="Another Paper3D application powered by Future Inteface Paper3D technology"
+		android:title="About us"
+		android:key="about_us"
+		/>
+</PreferenceScreen>

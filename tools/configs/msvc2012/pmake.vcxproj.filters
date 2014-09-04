@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="..\..\makeproject\pmake\makeproject.h" />
+    <ClInclude Include="..\..\makeproject\pmake\project.h" />
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\androidmanifestxml.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\androidmk.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\antproperties.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\applicationmk.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\bg_d_0png.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\buildbat.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\buildxml.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\cao_d_0png.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\caopmh.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\floor_d_0png.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\floorpmh.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\headers.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\iconpng.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\maincpp.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\mainxml.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\mogupmh.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\mogupng.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\msvc2012sln.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\msvc2012vcxproj.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\msvc2012vcxprojuser.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\mycontextcpp.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\mycontexth.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\myscenecpp.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\mysceneh.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\pactivityjava.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\paper3djava.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\pcontextjava.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\pmaincpp.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\pnativelibraryjava.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\proguardcfg.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\projectproperties.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\pviewjava.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\scenepsc.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\stringsxml.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\texturepmt.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\waterpmh.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\application\waterpng.h">
+      <Filter>headers\application</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\androidmanifestxml.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\androidmk.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\antproperties.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\applicationmk.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\bg_d_0png.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\buildbat.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\buildxml.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\cao_d_0png.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\caopmh.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\floor_d_0png.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\floorpmh.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\glwallpaperservicejava.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\headers.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\iconpng.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\maincpp.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\mainxml.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\mogupmh.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\mogupng.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\msvc2012sln.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\msvc2012vcxproj.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\msvc2012vcxprojuser.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\mycontextcpp.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\mycontexth.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\myscenecpp.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\mysceneh.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\paper3dwallpaperjava.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\paper3dwallpapersettingsjava.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\pcontextjava.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\pglwallpaperservicejava.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\pmaincpp.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\pnativelibraryjava.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\proguardcfg.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\projectproperties.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\scenepsc.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\settingsxml.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\stringsxml.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\texturepmt.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\wallpaper_settingsxml.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\waterpmh.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\makeproject\pmake\headers\wallpaper\waterpng.h">
+      <Filter>headers\wallpaper</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="headers">
+      <UniqueIdentifier>{93438b6a-ccc2-46cd-84ff-70e16495a9d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers\application">
+      <UniqueIdentifier>{329c90b5-cd3c-4875-8026-2bf8709a5766}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers\wallpaper">
+      <UniqueIdentifier>{f1a77668-c97f-4375-a865-8ea65bbfa21c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\makeproject\pmake\main.cpp" />
+    <ClCompile Include="..\..\makeproject\pmake\makeproject.cpp" />
+  </ItemGroup>
+</Project>

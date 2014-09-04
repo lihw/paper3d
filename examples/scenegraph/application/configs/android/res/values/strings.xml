@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">scenegraph</string>
+    <string name="author">Future Interface</string>
+    <string name="description">An test paper3d application. Android application powered by Future Interface Paper3D technology</string>
+    <string name="service_name">scenegraph</string>
+    <string name="service_label">scenegraph</string>
+    <string name="settings">Setting</string>
+    <string name="apk_name">SceneGraph</string>
+
+</resources>

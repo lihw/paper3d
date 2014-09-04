@@ -1,0 +1,15 @@
+const char MAINXML_STR[] = 
+"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n"
+"<LinearLayout xmlns:android=\"http://schemas.android.com/apk/res/android\"\n"
+"    android:orientation=\"vertical\"\n"
+"    android:layout_width=\"fill_parent\"\n"
+"    android:layout_height=\"fill_parent\"\n"
+"    >\n"
+"<TextView  \n"
+"    android:layout_width=\"fill_parent\" \n"
+"    android:layout_height=\"wrap_content\" \n"
+"    android:text=\"Hello Future Interface\"\n"
+"    />\n"
+"</LinearLayout>\n"
+"\n"
+;

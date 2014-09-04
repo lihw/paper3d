@@ -1,0 +1,36 @@
+# use 'application' to create an application project.
+# use 'wallpaper' to create an Android live wallpaper project.
+project_type=wallpaper
+# The name of your project. It will become the name of your Android and iOS applicaiton.
+project_name=TestWallpaper2
+# A brief description about your application.
+project_description=An test paper3d application. Android application powered by Future Interface Paper3D technology
+# The project version.
+version=0.9-alpha
+
+# The company that shipps this application.
+company=Future Interface
+# The contact information.
+email=lihw81@gmail.com
+# The copyright information.
+copyright=Copyright 2012 - 2014 Future Interface. All rights reserved.
+
+# The width of the window. It is only applicable to win32 application while iOS and Android
+# will automatically stretch to the full sreen.
+width=480
+# Ditto
+height=800
+
+# The multisample sample count. Typically, one can use 1, 2 and 4. 1 is equal to no msaa.
+multisamples=2
+
+# The maximum FPS. It can greatly reduce the computation overhead if one uses small FPS number.
+maxfps=15
+
+# Additional modules. The available ones are 
+# network: provide UDP/TCP interconnection
+# sensor: gyrosensor, motionsensor and so on
+# physics: bullet engine
+# sound: mp3 and wav playing support
+modules=sensor
+

@@ -352,6 +352,17 @@ img {
   /* 2 */
 }
 
+p.showcase img {
+  display: block;
+  float: left; 
+  margin-left: 0px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 120px;
+  height: 200px;
+  border: 0;
+}
+
 /*
  * Corrects overflow displayed oddly in IE9
  */
@@ -549,6 +560,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 10px;
   font-family: 'OpenSansRegular', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: normal;
+  clear: left;
 }
 
 p, ul, ol, table, pre, dl {

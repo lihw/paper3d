@@ -80,9 +80,10 @@ void PRenderState::useMaterial(PMaterialResource *material)
 
 void PRenderState::useFrameBuffer(PFrameBuffer* framebuffer)
 {
-    if (m_framebuffer == framebuffer)
+    if (m_framebuffer == framebuffer ||
+        (m_framebuffer == m_defaultFramebuffer && framebuffer == P_NULL))
     {
-        return;
+        return ;
     }
 
     // Disable old frame buffer and bind default frame buffer (screen buffer).

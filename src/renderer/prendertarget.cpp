@@ -179,5 +179,10 @@ void PRenderTarget::use(PRenderState *renderState)
             m_bufferClearEnabled[0],
             m_bufferClearEnabled[1],
             m_bufferClearEnabled[2]);
+
+    PLOG_INFO("clear value: %f, %f, %f", 
+        m_colorClearValue.getRFloat(),
+        m_colorClearValue.getGFloat(),
+        m_colorClearValue.getBFloat());
 }
     

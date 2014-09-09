@@ -21,7 +21,7 @@
 static void printUsage()
 {
     logInfo("Usage:\n");
-    logInfo("makeproject.exe [-f <makefile>]\n"
+    logInfo("makeproject.exe [-f <makefile>] <fbx-file>\n"
             "\n"
             "General:\n"
             "\t-h                 Print the usage.\n"
@@ -43,6 +43,8 @@ int main(int argc, const char* argv[])
     //
     Arguments arguments;
     std::string makeFile("project.pmk");
+    std::string fbxFile;
+    bool fromFbx = false; // Create the entire wallpaper from FBX. 
 
     for (int i = 1; i < argc; ++i)
     {
@@ -69,29 +71,69 @@ int main(int argc, const char* argv[])
         }
         else
         {
-            logError("Unknown command line arguments.");
-			printUsage();
-			return EXIT_FAILURE;
+            if (i == argc - 1)
+            {
+                fbxFile = argv[i];
+                fromFbx = true;
+            }
+            else
+            {
+                logError("Unknown command line arguments.");
+			    printUsage();
+			    return EXIT_FAILURE;
+            }
         }
+
     }
 
     // Parse the configuration.
-    if (!arguments.parse(makeFile.c_str()))
+    if (!fromFbx)
     {
-        return EXIT_FAILURE;
+        if (!arguments.parse(makeFile.c_str()))
+        {
+            return EXIT_FAILURE;
+        }
     }
-            
+    else
+    {
+        arguments.fromFbxFile(fbxFile);
+    }
+
+    //
+    // Delete the old project if exists
+    //
+    char cmdline[1024];
+
+#if defined WIN32
+    sprintf_s(cmdline, 1024, "rd /s /q %s", arguments.shortProjectName.c_str());
+    system(cmdline);
+#endif
+    
     //
     // Create the project
     //
+    logInfo("Creating the project.");
     MakeProject makeProject(arguments);
-    if (!makeProject.run())
+    if (!makeProject.run(fromFbx))
     {
         return EXIT_FAILURE;
     }
 
     logInfo("Project %s has been created!", arguments.projectName.c_str());
+
+    //
+    // Run fbxtool and copy the resource to the application folder.
+    //
+#if defined WIN32
+    sprintf_s(cmdline, 1024, "fbxtool.exe -meshformat pmh -meshattrib a %s", fbxFile.c_str());
+    int exitCode = system(cmdline);
     
+    sprintf_s(cmdline, 1024, "xcopy /E /i res %s\\application\\res", arguments.shortProjectName.c_str());
+    system(cmdline);
+    
+    system("rd /s /q res");
+#endif
+
     // If debugger is present, a pause is required to keep the console output
     // visible. Otherwise the pause is automatic. 
     if (IsDebuggerPresent())

@@ -1,6 +1,6 @@
 const char MAINCPP_STR[] = 
 "// main.cpp\n"
-"// %s\n"
+"%s\n"
 "//\n"
 "\n"
 "\n"

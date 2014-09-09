@@ -28,6 +28,8 @@ PRenderer::PRenderer(PScene *scene)
 {
     PASSERT(scene != P_NULL);
     m_scene = scene;
+
+    m_backgroundColor = P_COLOR_BLACK;
 }
 
 PRenderer::~PRenderer()

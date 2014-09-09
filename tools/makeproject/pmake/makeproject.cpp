@@ -180,6 +180,43 @@ bool Arguments::parse(const char *confFile)
 
     return true;
 }
+
+void Arguments::fromFbxFile(const std::string &fbxFile)
+{
+    size_t pos = fbxFile.rfind('\\');
+    size_t len = fbxFile.rfind('.');
+    if (pos == std::string::npos)
+    {
+        pos = 0;    
+    }
+    else
+    {
+        pos += 1;
+    }
+    projectName = fbxFile.substr(pos, len - pos);
+    projectType = "wallpaper";
+
+    const char *q = projectName.c_str();
+    char text[1024];
+    char *p = text;
+
+    while (*q != 0)
+    {
+        *p++ = tolower(*q++);
+    }
+    *p = 0;
+
+    shortProjectName = std::string(text);
+
+    projectDescription = std::string("Android live wallpaper \"") + projectName + std::string("\"");
+    
+    fileHeader = 
+        std::string("// ") + projectDescription + std::string("\n") + 
+        std::string("//\n") + 
+        std::string("// ") + copyright + std::string("\n") +
+        std::string("//\n") + 
+        std::string("// ") + company + std::string("  ") + email;
+}
     
 const char *Arguments::getValue(const char *line)
 {
@@ -216,7 +253,7 @@ MakeProject::~MakeProject()
 {
 }
 
-bool MakeProject::run()
+bool MakeProject::run(bool fromFbx)
 {
 	char capitalizedProjectName[1024];
 	char *q = capitalizedProjectName;
@@ -397,7 +434,14 @@ bool MakeProject::run()
         }
         else if (m_arguments.projectType == "wallpaper")
         {
-            root = parseDirectoryStructure(wallpaperProjectConf);
+            if (fromFbx)
+            {
+                root = parseDirectoryStructure(wallpaperProject2Conf);
+            }
+            else
+            {
+                root = parseDirectoryStructure(wallpaperProjectConf);
+            }
         }
         else if (m_arguments.projectType == "application")
         {

@@ -2,7 +2,7 @@
 # use 'wallpaper' to create an Android live wallpaper project.
 project_type=wallpaper
 # The name of your project. It will become the name of your Android and iOS applicaiton.
-project_name=TestWallpaper2
+project_name=earth
 # A brief description about your application.
 project_description=An test paper3d application. Android application powered by Future Interface Paper3D technology
 # The project version.
@@ -32,5 +32,5 @@ maxfps=15
 # sensor: gyrosensor, motionsensor and so on
 # physics: bullet engine
 # sound: mp3 and wav playing support
-modules=sensor
+modules=
 

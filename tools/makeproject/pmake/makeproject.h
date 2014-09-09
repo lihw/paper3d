@@ -52,6 +52,7 @@ struct Arguments
     Arguments();
 
     bool parse(const char *confFile);
+    void fromFbxFile(const std::string &fbxFile);
     const char *getValue(const char *line);
     const char *trim(const char *text);
 };
@@ -104,7 +105,7 @@ public:
     MakeProject(const Arguments& arguments);
     ~MakeProject();
 
-    bool run(); 
+    bool run(bool fromFbx); 
 
 private:
     bool makeDirectory(const char *path);

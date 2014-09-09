@@ -128,6 +128,10 @@ SceneNode *SceneConverter::makeSceneNode(FbxNode *node)
             FbxVector4 position = camera->EvaluatePosition();
             FbxVector4 center = camera->EvaluateLookAtPosition();
             FbxVector4 up = camera->EvaluateUpDirection(position, center);
+            if (up.Length() < 1e-4f)
+            {
+                up = FbxVector4(0, 1, 0, 0);
+            }
 
             char buffer[1024];
             FBXSDK_sprintf(buffer, 1024, "eye:%8.5f,%8.5f,%8.5f,center:%8.5f,%8.5f,%8.5f,up:%8.5f,%8.5f,%8.5f",

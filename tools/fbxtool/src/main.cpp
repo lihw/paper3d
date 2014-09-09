@@ -156,6 +156,8 @@ int main(int argc, const char* argv[])
     {
         return EXIT_FAILURE;
     }
+
+
     
     // If debugger is present, a pause is required to keep the console output
     // visible. Otherwise the pause is automatic. 

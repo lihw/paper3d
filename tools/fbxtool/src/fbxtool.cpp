@@ -140,6 +140,8 @@ bool FbxTool::convert()
     
 bool FbxTool::createProject()
 {
+    bool ret = true;
+
     logInfo("Exporting project %s.\n", m_arguments.projectName.Buffer());
     
     //
@@ -216,21 +218,42 @@ bool FbxTool::createProject()
                 }
             }
 
+            // If we can't find the texture file whose path is specified by fbx, we assume it is
+            // in the same folder as fbx file.
+            if (!FbxFileUtils::Exist(actualPath.Buffer()))
+            {
+                actualPath = FbxPathUtils::Bind(fbxFileFolder, textureName);
+            }
+
+            if (!FbxFileUtils::Exist(actualPath.Buffer()))
+            {
+                logError("Failed to find texture %s. Please put it into %s.",
+                    texPath.Buffer(), actualPath.Buffer());
+                continue;
+            }
+
             FbxString dstPath = FbxPathUtils::Bind(textureOutputPath.Buffer(), textureName.Lower().Buffer());
 
             // TODO: texture compression.
 
             // Convert to PNG file
             FbxString oldSuffix = FbxPathUtils::GetExtensionName(actualPath.Buffer());
-            if ( oldSuffix.Lower() != "png")
+            if (oldSuffix.Lower() == "jpg")
             {
-                logWarning("%s is not PNG file and can't be loaded by the engine!", textureName.Buffer());
+                dstPath = FbxPathUtils::ChangeExtension(dstPath, ".png");
+
+                char cmdline[1024];
+                FBXSDK_snprintf(cmdline, 1024, "jpg2png.exe %s %s", actualPath.Buffer(), dstPath.Buffer());
+                system(cmdline);
             }
-            
-            if (!FbxFileUtils::Copy(dstPath.Buffer(), actualPath.Buffer()))
+            else
             {
-                logError("Failed to find texture %s. Please manually copy it to %s.",
-                    texPath.Buffer(), textureOutputPath.Buffer());
+                if (!FbxFileUtils::Copy(dstPath.Buffer(), actualPath.Buffer()))
+                {
+                    logError("Failed to find texture %s. Please manually copy it to %s.",
+                        texPath.Buffer(), textureOutputPath.Buffer());
+                    ret = false;
+                }
             }
         }
     }
@@ -258,8 +281,12 @@ bool FbxTool::createProject()
     output.writeBytes((FbxUInt8*)MATERIAL_TEXT, strlen(MATERIAL_TEXT));
     output.close();
 
-    logInfo("Succeed!");
-    return true;
+    if (ret)
+    {
+        logInfo("Succeed!");
+    }
+
+    return ret;
 }
 
 

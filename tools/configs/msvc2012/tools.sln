@@ -22,6 +22,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pmake", "pmake.vcxproj", "{
 		{74DAF120-50EB-4B4E-8FA5-576BA2824C1E} = {74DAF120-50EB-4B4E-8FA5-576BA2824C1E}
 	EndProjectSection
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jpg2png", "jpg2png.vcxproj", "{98C8CCAB-66DF-455A-858E-1B74AD2CBC6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -52,6 +54,10 @@ Global
 		{8670270F-B10B-45B7-BFEE-E1582479EFE6}.Debug|Win32.Build.0 = Debug|Win32
 		{8670270F-B10B-45B7-BFEE-E1582479EFE6}.Release|Win32.ActiveCfg = Release|Win32
 		{8670270F-B10B-45B7-BFEE-E1582479EFE6}.Release|Win32.Build.0 = Release|Win32
+		{98C8CCAB-66DF-455A-858E-1B74AD2CBC6F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{98C8CCAB-66DF-455A-858E-1B74AD2CBC6F}.Debug|Win32.Build.0 = Debug|Win32
+		{98C8CCAB-66DF-455A-858E-1B74AD2CBC6F}.Release|Win32.ActiveCfg = Release|Win32
+		{98C8CCAB-66DF-455A-858E-1B74AD2CBC6F}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

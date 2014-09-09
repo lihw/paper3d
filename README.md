@@ -28,10 +28,29 @@ Make sure [Tech](http://lihw.github.io/tech) is installed on your development pl
 ## OSX
 Not supported yet.
 
+# Build
+## Windows
+### Windows libraries
+Open %FIPAPER3D%\paper3d\configs\msvc2012\paper3d.sln in MSVC2012, choose **Debug** profile and build. When finished, build the **Release** profile.
+
+### Andorid libraries
+Open %FIPAPER3D%\paper3d\configs\android\ in dos window, and enter `build.bat debug`. When finished, enter `build.bat release`.
+
+## OSX
+### iOS libraries
+Open ${FIPAPER3D}/configs/ios/Paper3D.xcodeproj, select **buildall** as active scheme and build.
+
+
 #Test
 
 ## Windows
-1. Open <Dir>\paper3d\examples\hellopaper3d\configs\msvc2012\hellopaper3d.sln in MSVC2012, choose **Debug** profile, build and run.
+1. Open %FIPAPER3D%\examples\hellopaper3d\configs\msvc2012\hellopaper3d.sln in MSVC2012, choose **Debug** profile, build and run.
 
 ## OSX
-1. Open <Dir>/paper3d/examples/hellopaper3d/configs/ios/Tech.xcodeproj, select **buildall** as active scheme and build for run.
+1. Open ${FIPAPER3D}/examples/hellopaper3d/configs/ios/Tech.xcodeproj, select **buildall** as active scheme and build for run.
+
+# Create a wallpaper APK from FBX
+Paper3D provides a very convenient way to create a wallpaper APK directly from an Autodesk FBX file. It takes only two steps.
+step 1, in the dos window, enter `%FIPAPER3D%\tools\bin\msvc2012\pmake.exe some.fbx`, the command will create a project named after the fbx's filename.
+step 2, enter the project created by pmake, in the application\configs\android, enter `build.bat debug`. It will then create the apk in the application\bin\android.
+

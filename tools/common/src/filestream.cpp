@@ -23,7 +23,11 @@ FileStream::FileStream(const char *filename)
 
 bool FileStream::openToWrite()
 {
+#if defined WIN32
     fopen_s(&m_fp, m_filename.c_str(), "wb");
+#elif defined __APPLE__
+    m_fp = fopen(m_filename.c_str(), "wb");
+#endif
     if (m_fp == NULL)
     {
         return false;
@@ -75,7 +79,11 @@ void FileStream::printf(const char *format, ...)
     va_list arguments;
     va_start(arguments, format);
     char buffer[4096];
+#if defined WIN32
     size_t nchars = vsprintf_s(buffer, 4096, format, arguments);
+#elif defined __APPLE__
+    size_t nchars = vsnprintf(buffer, 4096, format, arguments);
+#endif
     writeBytes((unsigned char*)(&buffer[0]), nchars);
 }
 

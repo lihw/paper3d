@@ -10,7 +10,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include <windows.h>
+#if defined WIN32
+# include <windows.h>
+#elif defined __APPLE__
+# include <unistd.h>
+#endif
 
 #include <common/version.h>
 #include <common/log.h>
@@ -42,7 +46,6 @@ static void printVersion()
         "archiver version %s. Future Interface 2012 - 2014.\n\n", 
         FI_VERSION_STR);
 }
-
 
 int main(int argc, const char* argv[])
 {
@@ -95,8 +98,12 @@ int main(int argc, const char* argv[])
     //
     // Check if the input path exists
     //
+#if defined WIN32
     DWORD dwAttrib = GetFileAttributesA(arguments.inputPath.c_str());
     bool exists = ((dwAttrib != INVALID_FILE_ATTRIBUTES) && (dwAttrib & FILE_ATTRIBUTE_DIRECTORY));
+#else
+    bool exists = (access(arguments.inputPath.c_str(), R_OK) != -1);
+#endif
     if (!exists)
     {
         logError("The %s doesn't exists or is not a directory.");
@@ -112,12 +119,14 @@ int main(int argc, const char* argv[])
         return EXIT_FAILURE;
     }
     
+#if defined WIN32
     // If debugger is present, a pause is required to keep the console output
     // visible. Otherwise the pause is automatic. 
     if (IsDebuggerPresent())
     {
         system("pause");
     }
+#endif
 
     return EXIT_SUCCESS;
 }

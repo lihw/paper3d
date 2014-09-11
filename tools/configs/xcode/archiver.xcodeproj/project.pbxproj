@@ -1,0 +1,272 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EDA548AC19C0405300DC41F8 /* archiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDA548A919C0405300DC41F8 /* archiver.cpp */; };
+		EDA548AD19C0405300DC41F8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDA548AB19C0405300DC41F8 /* main.cpp */; };
+		EDA548FB19C0868E00DC41F8 /* archiver in CopyFiles */ = {isa = PBXBuildFile; fileRef = EDA5489D19C03FB700DC41F8 /* archiver */; };
+		EDA548FD19C08A3600DC41F8 /* libcommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDA548FC19C08A3600DC41F8 /* libcommon.a */; };
+		EDA548FF19C08A5D00DC41F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDA548FE19C08A5D00DC41F8 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EDA5489B19C03FB700DC41F8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "${FIPAPER3D}/tools/bin/xcode";
+			dstSubfolderSpec = 0;
+			files = (
+				EDA548FB19C0868E00DC41F8 /* archiver in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		EDA5489D19C03FB700DC41F8 /* archiver */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = archiver; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDA548A919C0405300DC41F8 /* archiver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = archiver.cpp; path = ../../../archiver/src/archiver.cpp; sourceTree = "<group>"; };
+		EDA548AA19C0405300DC41F8 /* archiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = archiver.h; path = ../../../archiver/src/archiver.h; sourceTree = "<group>"; };
+		EDA548AB19C0405300DC41F8 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../archiver/src/main.cpp; sourceTree = "<group>"; };
+		EDA548FC19C08A3600DC41F8 /* libcommon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommon.a; path = DerivedData/tools/Build/Products/Debug/libcommon.a; sourceTree = "<group>"; };
+		EDA548FE19C08A5D00DC41F8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EDA5489A19C03FB700DC41F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDA548FF19C08A5D00DC41F8 /* Foundation.framework in Frameworks */,
+				EDA548FD19C08A3600DC41F8 /* libcommon.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EDA5489419C03FB700DC41F8 = {
+			isa = PBXGroup;
+			children = (
+				EDA548FE19C08A5D00DC41F8 /* Foundation.framework */,
+				EDA548FC19C08A3600DC41F8 /* libcommon.a */,
+				EDA5489F19C03FB700DC41F8 /* src */,
+				EDA5489E19C03FB700DC41F8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EDA5489E19C03FB700DC41F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EDA5489D19C03FB700DC41F8 /* archiver */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDA5489F19C03FB700DC41F8 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				EDA548A919C0405300DC41F8 /* archiver.cpp */,
+				EDA548AA19C0405300DC41F8 /* archiver.h */,
+				EDA548AB19C0405300DC41F8 /* main.cpp */,
+			);
+			name = src;
+			path = archiver;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EDA5489C19C03FB700DC41F8 /* archiver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EDA548A619C03FB700DC41F8 /* Build configuration list for PBXNativeTarget "archiver" */;
+			buildPhases = (
+				EDA5489919C03FB700DC41F8 /* Sources */,
+				EDA5489A19C03FB700DC41F8 /* Frameworks */,
+				EDA5489B19C03FB700DC41F8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = archiver;
+			productName = archiver;
+			productReference = EDA5489D19C03FB700DC41F8 /* archiver */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EDA5489519C03FB700DC41F8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = futureinterface;
+			};
+			buildConfigurationList = EDA5489819C03FB700DC41F8 /* Build configuration list for PBXProject "archiver" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = EDA5489419C03FB700DC41F8;
+			productRefGroup = EDA5489E19C03FB700DC41F8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDA5489C19C03FB700DC41F8 /* archiver */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EDA5489919C03FB700DC41F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDA548AD19C0405300DC41F8 /* main.cpp in Sources */,
+				EDA548AC19C0405300DC41F8 /* archiver.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EDA548A419C03FB700DC41F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LIBRARY_SEARCH_PATHS = "../../common/lib/xcode/$(CONFIGURATION)";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		EDA548A519C03FB700DC41F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LIBRARY_SEARCH_PATHS = "../../common/lib/xcode/$(CONFIGURATION)";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		EDA548A719C03FB700DC41F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../common/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DerivedData/tools/Build/Products/Debug",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		EDA548A819C03FB700DC41F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					../../common/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DerivedData/tools/Build/Products/Debug",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EDA5489819C03FB700DC41F8 /* Build configuration list for PBXProject "archiver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDA548A419C03FB700DC41F8 /* Debug */,
+				EDA548A519C03FB700DC41F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EDA548A619C03FB700DC41F8 /* Build configuration list for PBXNativeTarget "archiver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDA548A719C03FB700DC41F8 /* Debug */,
+				EDA548A819C03FB700DC41F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EDA5489519C03FB700DC41F8 /* Project object */;
+}

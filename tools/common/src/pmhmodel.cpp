@@ -75,11 +75,17 @@ bool PmhModel::write(const char *path)
         for (unsigned int i = 0; i < numAttribs; ++i)
         {
             char buffer[1024];
-            size_t n = sprintf_s(buffer, 1024, "%s %d %s\n", 
+#if defined WIN32
+            size_t n = sprintf_s(buffer, 1024, "%s %d %s\n",
                     attribs[i].name.c_str(),
                     attribs[i].size,
                     attribs[i].type.c_str());
-
+#elif defined __APPLE__
+            size_t n = snprintf(buffer, 1024, "%s %d %s\n",
+                                attribs[i].name.c_str(),
+                                attribs[i].size,
+                                attribs[i].type.c_str());
+#endif
             stream.writeBytes((unsigned char*)(&buffer[0]), n);
         }
 

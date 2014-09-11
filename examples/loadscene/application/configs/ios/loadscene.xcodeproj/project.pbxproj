@@ -145,6 +145,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = ED9C49DE199AE8220083A14B /* Build configuration list for PBXNativeTarget "loadscene" */;
 			buildPhases = (
+				EDA5490319C0915800DC41F8 /* ShellScript */,
 				ED9C49AE199AE8210083A14B /* Sources */,
 				ED9C49AF199AE8210083A14B /* Frameworks */,
 				ED9C49B0199AE8210083A14B /* Resources */,
@@ -227,6 +228,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EDA5490319C0915800DC41F8 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${FIPAPER3D}/tools/bin/xcode/archiver -o ${PROJECT_DIR}/../../res/${TARGET_NAME}.par ${PROJECT_DIR}/../../res";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ED9C49AE199AE8210083A14B /* Sources */ = {
@@ -340,16 +357,16 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					../../../../../../Tech/include,
-					../../../../../../Paper3D/include,
+					"$(FITECH)/include",
+					"$(FIPAPER3D)/include",
 				);
 				INFOPLIST_FILE = "loadscene-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
-					../../../../../../Paper3D/lib/ios/Debug,
-					../../../../../../Tech/lib/ios/ES20_Debug,
-					../../../../../../Tech/3rdparty/platforms/ios/tinyxml/lib/Debug,
-					../../../../../../Tech/3rdparty/platforms/ios/libpng/lib/Debug,
-					../../../../../../Tech/3rdparty/platforms/ios/zlib/lib/Debug,
+					"$(FIPAPER3D)/lib/ios/Debug",
+					"$(FITECH)/lib/ios/ES20_Debug",
+					"$(FITECH)/3rdparty/platforms/ios/tinyxml/lib/Debug",
+					"$(FITECH)/3rdparty/platforms/ios/libpng/lib/Debug",
+					"$(FITECH)/3rdparty/platforms/ios/zlib/lib/Debug",
 				);
 				OTHER_LDFLAGS = (
 					"-lfoundation",
@@ -379,10 +396,11 @@
 				);
 				INFOPLIST_FILE = "loadscene-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/hwli/Desktop/Projects/FutureInterface/Tech/lib/ios/ES20_Debug,
-					/Users/hwli/Desktop/Projects/FutureInterface/Paper3D/lib/ios/ES20_Debug,
-					/Users/hwli/Desktop/Projects/FutureInterface/Tech/3rdparty/platforms/ios/tinyxml/lib/Debug,
+					"$(FIPAPER3D)/lib/ios/Release",
+					"$(FITECH)/lib/ios/ES20_Release",
+					"$(FITECH)/3rdparty/platforms/ios/tinyxml/lib/Release",
+					"$(FITECH)/3rdparty/platforms/ios/libpng/lib/Release",
+					"$(FITECH)/3rdparty/platforms/ios/zlib/lib/Release",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

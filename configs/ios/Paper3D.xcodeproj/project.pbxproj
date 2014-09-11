@@ -79,6 +79,7 @@
 		ED9C49A0199A22E90083A14B /* prootnode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED9C4962199A22E90083A14B /* prootnode.cpp */; };
 		ED9C49A1199A22E90083A14B /* pscene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED9C4964199A22E90083A14B /* pscene.cpp */; };
 		ED9C49A2199A22E90083A14B /* pscenemanager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = ED9C4966199A22E90083A14B /* pscenemanager.cpp */; };
+		EDA5490219C0910600DC41F8 /* pshadowpass.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDA5490019C0910600DC41F8 /* pshadowpass.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -214,6 +215,8 @@
 		ED9C4965199A22E90083A14B /* pscene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pscene.h; sourceTree = "<group>"; };
 		ED9C4966199A22E90083A14B /* pscenemanager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pscenemanager.cpp; sourceTree = "<group>"; };
 		ED9C4967199A22E90083A14B /* pscenemanager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pscenemanager.h; sourceTree = "<group>"; };
+		EDA5490019C0910600DC41F8 /* pshadowpass.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pshadowpass.cpp; sourceTree = "<group>"; };
+		EDA5490119C0910600DC41F8 /* pshadowpass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pshadowpass.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +292,7 @@
 		ED9C48F7199A22E90083A14B /* renderer */ = {
 			isa = PBXGroup;
 			children = (
+				ED9C491A199A22E90083A14B /* queue */,
 				ED9C48F8199A22E90083A14B /* geometry */,
 				ED9C4903199A22E90083A14B /* material */,
 				ED9C4910199A22E90083A14B /* prenderer.cpp */,
@@ -301,7 +305,8 @@
 				ED9C4917199A22E90083A14B /* prendertarget.h */,
 				ED9C4918199A22E90083A14B /* prendertransform.cpp */,
 				ED9C4919199A22E90083A14B /* prendertransform.h */,
-				ED9C491A199A22E90083A14B /* queue */,
+				EDA5490019C0910600DC41F8 /* pshadowpass.cpp */,
+				EDA5490119C0910600DC41F8 /* pshadowpass.h */,
 				ED9C4921199A22E90083A14B /* readme.txt */,
 			);
 			name = renderer;
@@ -538,7 +543,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# define output folder environment variable\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target paper3d ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos -arch \"arm64 armv7 armv7s\"  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target paper3d -configuration ${CONFIGURATION} -sdk iphonesimulator -arch i386 BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 2. Create universal binary file using lipo\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/libpaper3d.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/libpaper3d.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/libpaper3d.a\"\n\n# Last touch. copy the static library file to output folder.\nLIBRARY_OUTPUTFOLDER=${SRCROOT}/../../lib/ios/${CONFIGURATION}\nmkdir -p ${LIBRARY_OUTPUTFOLDER}\ncp -Rf \"${UNIVERSAL_OUTPUTFOLDER}/libpaper3d.a\" ${LIBRARY_OUTPUTFOLDER}";
+			shellScript = "# define output folder environment variable\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target paper3d ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos ARCHS=\"arm64 armv7 armv7s\"  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\nxcodebuild -target paper3d -configuration ${CONFIGURATION} -sdk iphonesimulator -arch i386 BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\"\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 2. Create universal binary file using lipo\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/libpaper3d.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/libpaper3d.a\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/libpaper3d.a\"\n\n# Last touch. copy the static library file to output folder.\nLIBRARY_OUTPUTFOLDER=${SRCROOT}/../../lib/ios/${CONFIGURATION}\nmkdir -p ${LIBRARY_OUTPUTFOLDER}\ncp -Rf \"${UNIVERSAL_OUTPUTFOLDER}/libpaper3d.a\" ${LIBRARY_OUTPUTFOLDER}";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -602,6 +607,7 @@
 				ED9C4998199A22E90083A14B /* psprite2d.cpp in Sources */,
 				ED9C498F199A22E90083A14B /* presourceobject.cpp in Sources */,
 				ED9C4988199A22E90083A14B /* presourcecache.cpp in Sources */,
+				EDA5490219C0910600DC41F8 /* pshadowpass.cpp in Sources */,
 				ED9C498C199A22E90083A14B /* pmaterialresource.cpp in Sources */,
 				ED9C498B199A22E90083A14B /* pframebuffer.cpp in Sources */,
 			);
@@ -689,7 +695,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					../../include,
-					../../../Tech/include,
+					"$(FITECH)/include",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -707,7 +713,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					../../include,
-					../../../Tech/include,
+					"$(FITECH)/include",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

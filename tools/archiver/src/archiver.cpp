@@ -13,7 +13,14 @@
 #include <common/version.h>
 #include <common/log.h>
 
-#include <windows.h>
+#if defined WIN32
+# include <windows.h>
+#elif defined __APPLE__
+# include <unistd.h>
+# include <dirent.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+#endif
 
 Archiver::Archiver(const Arguments& arguments)
 {
@@ -68,15 +75,25 @@ bool Archiver::writeEntries()
     //
     // Write the file list to a supplementary file.
     //
+#if defined WIN32
     char auxFilePath[MAX_PATH];
     strcpy_s(auxFilePath, MAX_PATH, m_arguments.outputFile.c_str());
+#elif defined __APPLE__
+    char auxFilePath[4096];
+    strncpy(auxFilePath, m_arguments.outputFile.c_str(), 4095);
+    auxFilePath[4095] = 0;
+#endif
     char *suffix = strrchr(auxFilePath, '.');
     suffix[1] = 't';
     suffix[2] = 'x';
     suffix[3] = 't';
 
     FILE *fp;
+#if defined WIN32
     fopen_s(&fp, auxFilePath, "wb");
+#elif defined __APPLE__
+    fp = fopen(auxFilePath, "wb");
+#endif
     logInfo("There are %d entries.\n", m_entries.size());
     for (size_t i = 0; i < m_entries.size(); ++i)
     {
@@ -159,6 +176,7 @@ bool Archiver::writeEntries()
 
 bool Archiver::readDirectory(const char *prefix, const char *dir)
 {
+#if defined WIN32
     // Fetch the item names in that directory.
     WIN32_FIND_DATAA fdFile;
     HANDLE hFind = NULL;
@@ -220,7 +238,66 @@ bool Archiver::readDirectory(const char *prefix, const char *dir)
 
         FindClose(hFind); //Always, Always, clean things up!
     }
+#elif defined __APPLE__
+        // Fetch the item names in that directory.
+        DIR* dirObject;
+        dirent* dirEntry;
 
+        if ((dirObject = opendir(dir)) == NULL)
+        {
+            logError("Failed to read directory %s.", dir);
+        }
+        else
+        {
+            char path[4096];
+            while ((dirEntry = readdir(dirObject)) != NULL)
+            {
+                // Find first file will always return "." and ".." 
+                // as the first two directories.
+                if (strcmp(dirEntry->d_name, ".") != 0 &&
+                    strcmp(dirEntry->d_name, "..") != 0)
+                {
+                    //Is the entity a File or Folder?
+                    if (dirEntry->d_type == DT_DIR)
+                    {
+                        char newPrefix[4096];
+                        snprintf(newPrefix, 4096, "%s/%s", prefix, dirEntry->d_name);
+                        char newPath[4096];
+                        snprintf(newPath, 4096, "%s/%s", dir, dirEntry->d_name);
+                        readDirectory(newPrefix, newPath);
+                    }
+                    else if (dirEntry->d_type == DT_REG)
+                    {
+                        // Ignore misc files that should be excluded from the asset archiver.
+                        const char *suffix = strrchr(dirEntry->d_name, '.');
+                        if (suffix == NULL)
+                        {
+                            continue;
+                        }
+                        if (strncmp(suffix, ".exe", 4) == 0 ||
+                            strncmp(suffix, ".par", 4) == 0 ||
+                            strncmp(suffix, ".ini", 4) == 0 ||
+                            strncmp(suffix, ".txt", 4) == 0)
+                        {
+                            continue;
+                        }
+
+                        m_entries.push_back(ArchiveEntry());
+                        ArchiveEntry *entry = &m_entries.back();
+                        createEntry(entry, dir, prefix, dirEntry->d_name); 
+                    }
+                    else
+                    {
+                        logWarning("%s\\%s is not supported in archiver.", path, dirEntry->d_name);
+                    }
+                }
+            }
+
+            closedir(dirObject); //Always, Always, clean things up!
+        }
+
+#endif
+    
     return true;
 }
 
@@ -232,11 +309,17 @@ bool Archiver::createEntry(ArchiveEntry *entry, const char *path, const char *pr
 
     int count = 0;
 
+#if defined WIN32
     char dir[MAX_PATH];
     sprintf_s(dir, "%s\\%s", path, fileName);
     fopen_s(&fp, dir, "rb");
+#elif defined __APPLE__
+    char dir[4096];
+    snprintf(dir, 4096, "%s/%s", path, fileName);
+    fp = fopen(dir, "rb");
+#endif
 
-    if (fp != NULL) 
+    if (fp != NULL)
     {
         fseek(fp, 0, SEEK_END);
         count = ftell(fp);

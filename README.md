@@ -23,10 +23,10 @@ Use either `git clone https://github.com/lihw/paper3d.git <dir>;git checkout 0.9
 Make sure [Tech](http://lihw.github.io/tech) is installed on your development platform.
 
 ## Windows 7
-1. Run install.bat **as administrator**
+Run install.bat **as administrator**
 
 ## OSX
-Not supported yet.
+Run install.sh and *reboot the system*
 
 # Build
 ## Windows
@@ -38,7 +38,7 @@ Open %FIPAPER3D%\paper3d\configs\android\ in dos window, and enter `build.bat de
 
 ## OSX
 ### iOS libraries
-Open ${FIPAPER3D}/configs/ios/Paper3D.xcodeproj, select **buildall** as active scheme and build.
+Open ${FIPAPER3D}/configs/ios/Paper3D.xcodeproj, select **buildall** as active scheme and build for both Debug and Release configurations respectively.
 
 
 #Test
@@ -47,7 +47,7 @@ Open ${FIPAPER3D}/configs/ios/Paper3D.xcodeproj, select **buildall** as active s
 1. Open %FIPAPER3D%\examples\hellopaper3d\configs\msvc2012\hellopaper3d.sln in MSVC2012, choose **Debug** profile, build and run.
 
 ## OSX
-1. Open ${FIPAPER3D}/examples/hellopaper3d/configs/ios/Tech.xcodeproj, select **buildall** as active scheme and build for run.
+1. Open ${FIPAPER3D}/examples/loadscene3d/configs/ios/loadscene.xcodeproj, select **buildall** as active scheme and build for run.
 
 # Create a wallpaper APK from FBX
 Paper3D provides a very convenient way to create a wallpaper APK directly from an Autodesk FBX file. It takes only two steps.

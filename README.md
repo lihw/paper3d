@@ -26,7 +26,7 @@ Make sure [Tech](http://lihw.github.io/tech) is installed on your development pl
 Run install.bat **as administrator**
 
 ## OSX
-Run install.sh and *reboot the system*
+Run install.sh and **reboot the system**
 
 # Build
 ## Windows

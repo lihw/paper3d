@@ -39,14 +39,11 @@ void PRenderDrawableQueue::addDrawable(PDrawable *drawable)
     
     // Bubble the drawable w.r.t. its rendering priority for the opaque queue.
     m_drawables.append(drawable);
-    if (!m_transparent)
+    for (puint32 i = m_drawables.count() - 1; i > 0; --i)
     {
-        for (puint32 i = m_drawables.count() - 1; i > 0; --i)
+        if (m_drawables[i]->priority() > m_drawables[i - 1]->priority())
         {
-            if (m_drawables[i]->priority() > m_drawables[i - 1]->priority())
-            {
-                pSwap(m_drawables[i], m_drawables[i - 1]);
-            }
+            pSwap(m_drawables[i], m_drawables[i - 1]);
         }
     }
 }

@@ -12,7 +12,6 @@
 #include <Paper3D/paper3d.h>
 
 #include <PFoundation/pfoundation.h>
-#include <PFoundation/pcontext.h>
 
 
 MyScene::MyScene(PContext *context)

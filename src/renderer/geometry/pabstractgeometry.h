@@ -35,7 +35,7 @@ protected:
 public:
     P_INLINE PMesh *mesh() const { return m_mesh; }
     P_INLINE pint32 cullMode() const { return m_cullMode; }
-    P_INLINE bool isValid() const { return m_mesh != P_NULL; }
+    P_INLINE pbool isValid() const { return m_mesh != P_NULL; }
 
     static PAbstractGeometry *unpack(PXmlElement *element, PResourceManager *resourceManager);
     

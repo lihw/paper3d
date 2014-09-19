@@ -71,7 +71,7 @@ pbool PMesh::restoreResource()
     return false;
 }
     
-bool PMesh::createMesh(PMeshCache *meshCache)
+pbool PMesh::createMesh(PMeshCache *meshCache)
 {
     PGlVertexBuffer* vbo = PNEW(PGlVertexBuffer);
     // TODO: customized primitive type, not only triangles.
@@ -94,7 +94,7 @@ bool PMesh::createMesh(PMeshCache *meshCache)
     return true;
 }
 
-bool PMesh::updateData(pfloat32 *vertices, 
+pbool PMesh::updateData(pfloat32 *vertices, 
                        puint32 numVertices, 
                        puint16 *indices, 
                        puint32 numIndices,

@@ -30,8 +30,6 @@ public:
 
 class P_DLLEXPORT PEffectFactory
 {
-    friend class PSceneManager;
-
     PEffectFactory(const PEffectFactory &other) {}
     void operator=(const PEffectFactory &other) {}
 
@@ -41,7 +39,6 @@ public:
 
     PAbstractEffect *unpack(PXmlElement *xmlElement, PScene *scene);
 
-private:
     pbool initialize();
     void uninitialize();
 

@@ -133,7 +133,7 @@ void PTexture::retain()
     }
 }
     
-void PTexture::setRepeatWrappingEnabled(bool enabled, bool force)
+void PTexture::setRepeatWrappingEnabled(pbool enabled, pbool force)
 {
     if (m_repeatWrapping == enabled && !force)
     {
@@ -156,7 +156,7 @@ void PTexture::setRepeatWrappingEnabled(bool enabled, bool force)
     }
 }
 
-void PTexture::setLinearFilteringEnabled(bool enabled, bool force)
+void PTexture::setLinearFilteringEnabled(pbool enabled, pbool force)
 {
     if (m_linearFiltering == enabled && !force)
     {

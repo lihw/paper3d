@@ -37,6 +37,9 @@ public:
     void setBackgroundColor(const PColorRGBA &color);
     const PColorRGBA &backgroundColor() const;
 
+    // Update the states of renderer when the scene is updated.
+    void update();
+
     // Render pass by pass.
     void render(PRenderState *renderState);
 

@@ -104,7 +104,7 @@ void PRenderTarget::setStencilWriteEnabled(pbool enabled)
     m_stencilWriteEnabled = enabled;
 }
 
-void PRenderTarget::setScissorTestEnabled(bool enabled)
+void PRenderTarget::setScissorTestEnabled(pbool enabled)
 {
     m_scissorTestEnabled = enabled;
 }
@@ -122,7 +122,7 @@ void PRenderTarget::setBlend(PGlStateEnum mode)
     m_blend = mode;
 }
 
-void PRenderTarget::setBufferClearEnabled(bool color, bool depth, bool stencil)
+void PRenderTarget::setBufferClearEnabled(pbool color, pbool depth, pbool stencil)
 {
     m_bufferClearEnabled[0] = color;
     m_bufferClearEnabled[1] = depth;
@@ -147,7 +147,10 @@ void PRenderTarget::use(PRenderState *renderState)
 
     // Scissor
     rso->setScissorTestEnabled(m_scissorTestEnabled);
-    rso->setScissorRegion(m_scissor[0], m_scissor[1], m_scissor[2], m_scissor[3]);
+    if (m_scissorTestEnabled)
+    {
+        rso->setScissorRegion(m_scissor[0], m_scissor[1], m_scissor[2], m_scissor[3]);
+    }
 
     // Color 
     rso->setColorClearValue(m_colorClearValue.getRFloat(), 

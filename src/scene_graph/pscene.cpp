@@ -28,6 +28,7 @@
 #include <PFoundation/pnew.h>
 #include <PFoundation/passert.h>
 #include <PFoundation/plog.h>
+#include <PFoundation/pconststring.h>
 
 
 P_OBJECT_DEFINE(PScene)
@@ -44,6 +45,7 @@ PScene::PScene(const pchar *name, PContext *context)
     m_mainCamera    = P_NULL;
     m_renderer      = PNEW(PRenderer(this));
     m_shadowQuality = SHADOWQUALITY_DEFAULT;
+    m_viewport      = const_cast<puint32*>(m_context->rect());
 }
 
 PScene::~PScene()
@@ -61,6 +63,11 @@ PScene::~PScene()
         effect->m_scene = P_NULL;
         PDELETE(effect);
         ++it;
+    }
+
+    if (m_viewport != m_context->rect())
+    {
+        PDELETEARRAY(m_viewport);
     }
 }
 
@@ -177,6 +184,29 @@ void PScene::onResized(pfloat32 x, pfloat32 y, pfloat32 width, pfloat32 height)
         m_mainCamera->setViewport(x, y, width, height);
     }
 }
+
+void PScene::setViewport(const puint32 *viewport)
+{
+    if (viewport != P_NULL)
+    {
+        const puint32 *rect = m_context->rect();
+        if (m_viewport == rect)
+        {
+            m_viewport = PNEWARRAY(puint32, 4);
+        }
+        m_viewport[0] = viewport[0];
+        m_viewport[1] = viewport[1];
+        m_viewport[2] = viewport[2];
+        m_viewport[3] = viewport[3];
+    }
+    else
+    {
+        const puint32 *rect = m_context->rect();
+        m_viewport = const_cast<puint32 *>(rect);
+    }
+
+    m_renderer->update();
+}
     
 void PScene::setBackgroundColor(const PColorRGBA &color)
 {
@@ -231,6 +261,40 @@ pbool PScene::unpack(const PXmlElement* xmlElement)
         effect->m_scene = P_NULL;
         PDELETE(effect);
         ++it;
+    }
+
+    // Get the attributes of the this scene.
+    const pchar *viewportValue = xmlElement->attribute("viewport");
+    if (viewportValue != P_NULL)
+    {
+        pfloat32 viewport[4];
+        const pchar *p = viewportValue;
+        if ((p = pStringUnpackFloat(p, &viewport[0])) == P_NULL ||
+            (p = pStringUnpackFloat(p, &viewport[1])) == P_NULL ||
+            (p = pStringUnpackFloat(p, &viewport[2])) == P_NULL ||
+            (p = pStringUnpackFloat(p, &viewport[3])) == P_NULL)
+        {
+            PLOG_ERROR("The scene node doesn't have an valid viewport attribute.");
+            return false;
+        }
+
+        const puint32 *rect = m_context->rect();
+        if (m_viewport == rect)
+        {
+            m_viewport = PNEWARRAY(puint32, 4);
+        }
+        m_viewport[0] = (pint32)((pfloat32)rect[2] * viewport[0]);
+        m_viewport[1] = (pint32)((pfloat32)rect[3] * viewport[1]);
+        m_viewport[2] = (pint32)((pfloat32)rect[2] * viewport[2]);
+        m_viewport[3] = (pint32)((pfloat32)rect[3] * viewport[3]);
+    }
+    else
+    {
+        if (m_viewport != m_context->rect())
+        {
+            PDELETEARRAY(m_viewport);
+            m_viewport = const_cast<puint32*>(m_context->rect());
+        }
     }
 
     // Recursively unpack its children

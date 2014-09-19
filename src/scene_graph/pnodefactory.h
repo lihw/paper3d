@@ -29,8 +29,6 @@ public:
 
 class P_DLLEXPORT PNodeFactory
 {
-    friend class PSceneManager;
-
     PNodeFactory(const PNodeFactory &other) {}
     void operator=(const PNodeFactory &other) {}
 
@@ -40,7 +38,6 @@ public:
 
     PNode *unpack(PXmlElement *xmlElement, PNode *parent);
 
-private:
     pbool initialize();
     void uninitialize();
 

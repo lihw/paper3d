@@ -22,7 +22,7 @@ public:
     PAnimationLoader();
     ~PAnimationLoader();
 
-    bool read(PInputStream *inputSteam, PAnimationResource *animation);
+    pbool read(PInputStream *inputSteam, PAnimationResource *animation);
 
 private:
     PAnimationResource *m_animationResource;

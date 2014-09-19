@@ -20,7 +20,7 @@ PDirectionalLight::PDirectionalLight(const pchar *name, PScene *scene)
     P_OBJECT_INITIALIZE_PROPERTY(PAbstractLight);
 
     P_OBJECT_REGISTER_PROPERTY("direction",    &m_direction);
-    P_OBJECT_REGISTER_PROPERTY("cast-shadow",  &m_castShadow);
+    P_OBJECT_REGISTER_PROPERTY("castshadow",   &m_castShadow);
     m_direction = pVector3(-1.0f, 0.0f, 0.0f);
 }
 
@@ -30,7 +30,7 @@ PDirectionalLight::PDirectionalLight(const pchar *name, PNode *node)
     P_OBJECT_INITIALIZE_PROPERTY(PAbstractLight);
 
     P_OBJECT_REGISTER_PROPERTY("direction",    &m_direction);
-    P_OBJECT_REGISTER_PROPERTY("cast-shadow",  &m_castShadow);
+    P_OBJECT_REGISTER_PROPERTY("castshadow",   &m_castShadow);
     m_direction = pVector3(-1.0f, 0.0f, 0.0f);
 }
 

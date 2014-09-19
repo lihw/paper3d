@@ -29,15 +29,15 @@ class P_DLLEXPORT PTexture : public PResourceObject
     void operator=(PTexture& other) {};
 
 public:
-    P_INLINE bool isMipmap() const { return m_mipmap; }
-    P_INLINE bool isLinearFiltering() const { return m_linearFiltering; }
-    P_INLINE bool isCubeMap() const { return m_cubemap; }
-    P_INLINE bool isRepeatWrapping() const { return m_repeatWrapping; }
+    P_INLINE pbool isMipmap() const { return m_mipmap; }
+    P_INLINE pbool isLinearFiltering() const { return m_linearFiltering; }
+    P_INLINE pbool isCubeMap() const { return m_cubemap; }
+    P_INLINE pbool isRepeatWrapping() const { return m_repeatWrapping; }
     P_INLINE puint32 width() const { return m_width; }
     P_INLINE puint32 height() const { return m_height; }
 
-    void setRepeatWrappingEnabled(bool enabled, bool force = false);
-    void setLinearFilteringEnabled(bool enabled, bool force = false);
+    void setRepeatWrappingEnabled(pbool enabled, pbool force = false);
+    void setLinearFilteringEnabled(pbool enabled, pbool force = false);
     puint32 textureBytes() const;
     PGlTexture *textureObject() const { return m_textureObject; }
 
@@ -48,7 +48,7 @@ public:
 
 protected:
     virtual void discardResource();
-    virtual bool restoreResource();
+    virtual pbool restoreResource();
 
 private:
     PTexture(const pchar *id, PImage *image, PResourceManager *resourceManager, pbool mipmapEnabled = false); 

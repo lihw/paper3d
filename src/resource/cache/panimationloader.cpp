@@ -31,7 +31,7 @@ PAnimationLoader::~PAnimationLoader()
 
 }
 
-bool PAnimationLoader::read(PInputStream *inputStream, PAnimationResource *animation)
+pbool PAnimationLoader::read(PInputStream *inputStream, PAnimationResource *animation)
 {    
     PASSERT(inputStream != P_NULL);
     if (inputStream == P_NULL)

@@ -50,7 +50,7 @@ MyScene::~MyScene()
 }
 
 void MyScene::update()
-{
+{   /*
     if (!m_rotating)
     {
  	    PVector3 r = m_drawable->transform().rotation();
@@ -58,6 +58,7 @@ void MyScene::update()
         r[1] -= 0.005f;
 	    m_drawable->transform().setRotation(r);   
     }
+    */
 }
 
 void MyScene::setRotating(pbool rotating)

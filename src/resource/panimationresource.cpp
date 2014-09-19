@@ -22,7 +22,7 @@
 #include "cache/panimationloader_private.h"
 
 
-bool PKeyframeLess::operator()(const PAbstractKeyframe *left, const PAbstractKeyframe *right) const
+pbool PKeyframeLess::operator()(const PAbstractKeyframe *left, const PAbstractKeyframe *right) const
 {
     return left->time() < right->time();
 }

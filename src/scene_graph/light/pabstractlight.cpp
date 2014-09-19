@@ -76,7 +76,7 @@ void PAbstractLight::updateWorldTransform()
     // -------------------------------------------------------------- 
     // Update this world transformation matrix.
     // -------------------------------------------------------------- 
-    bool localTransformChanged = false;
+    pbool localTransformChanged = false;
     const PMatrix4x4 &localTransform = m_localTransform.toMatrix4x4(&localTransformChanged);
 
     // Update the this world transformation either when the parent has its own 

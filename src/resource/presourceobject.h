@@ -52,7 +52,7 @@ public:
     virtual ~PResourceObject();
 
     P_INLINE const pchar *id() const          { return m_id;  }
-    P_INLINE bool isAvailable() const         { return m_available; }
+    P_INLINE pbool isAvailable() const         { return m_available; }
     P_INLINE PResourceManager* parent() const { return m_parent; }
     P_INLINE PResourceTypeEnum type() const   { return m_type; }
 
@@ -63,7 +63,7 @@ public:
 
 protected:
     virtual void discardResource() = 0;
-    virtual bool restoreResource() = 0;
+    virtual pbool restoreResource() = 0;
 
     static const pchar *generateUniqueId(pchar *out_id);
 

@@ -61,12 +61,14 @@ public:
     P_INLINE PRenderer *renderer() const { return m_renderer; }
     P_INLINE ShadowQualityEnum shadowQuality() const { return m_shadowQuality; }
     P_INLINE const PBox *bbox() const { return &m_bbox; }
+    P_INLINE const puint32 *viewport() const { return m_viewport; }
 
     void setMainCamera(PCamera *camera);
     void setName(const pchar *name);
     void setBackgroundColor(const PColorRGBA &color);
     // FIXME: only works before the first frame is drawn.
     void setShadowQuality(ShadowQualityEnum quality);
+    void setViewport(const puint32 *viewport);
 
     const PColorRGBA &backgroundColor() const;
 
@@ -98,6 +100,7 @@ protected:
     PList<PAbstractEffect *> m_effects;
     ShadowQualityEnum        m_shadowQuality;
     PBox                     m_bbox; 
+    puint32                  *m_viewport;
 };
 
 #endif // !PSCENE_H

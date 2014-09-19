@@ -41,7 +41,7 @@ PResourceCache::~PResourceCache()
     }
 }
 
-bool PResourceCache::getImages(const pchar *id, 
+pbool PResourceCache::getImages(const pchar *id, 
                               PImage **out_images, 
                               puint32 *out_numImages)
 {

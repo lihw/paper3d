@@ -114,7 +114,7 @@ void PCamera::updateWorldTransform()
     // -------------------------------------------------------------- 
     // Update this world transformation matrix.
     // -------------------------------------------------------------- 
-    bool localTransformChanged = false;
+    pbool localTransformChanged = false;
     const PMatrix4x4 &localTransform = m_localTransform.toMatrix4x4(&localTransformChanged);
 
     if (m_fixed.toBool())
@@ -191,7 +191,7 @@ pbool PCamera::unpack(const PXmlElement* xmlElement)
     {
         // When the aspect, width or height of the projection is left to be default value,
         // we need to explicitly set them.
-        const puint32 *rect = scene()->context()->rect();
+        const puint32 *rect = scene()->viewport();
         if (m_projection.projection() == P_PROJECTION_ORTHOGONAL)
         {
             if (m_projection.aspect() < 0)

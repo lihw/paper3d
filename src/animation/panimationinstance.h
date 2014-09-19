@@ -91,13 +91,13 @@ public:
     { return m_playTimes; }
     P_INLINE PAnimationStateEnum getState() const
     { return m_state; }
-    P_INLINE bool isPlaying() const
+    P_INLINE pbool isPlaying() const
     { return m_state == P_ANIMATION_PLAYING; }
-    P_INLINE bool isStopped() const
+    P_INLINE pbool isStopped() const
     { return m_state == P_ANIMATION_STOPPED; }
-    P_INLINE bool isPaused() const
+    P_INLINE pbool isPaused() const
     { return m_state == P_ANIMATION_PAUSED; }
-    P_INLINE bool isTemporary() const
+    P_INLINE pbool isTemporary() const
     { return m_temporary; }
 
     // When the after is an negative value, we will start the animation

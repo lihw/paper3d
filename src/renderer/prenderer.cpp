@@ -52,6 +52,16 @@ void PRenderer::render(PRenderState *renderState)
         renderPass->queue()->addNodes(m_scene->root());
         renderPass->target()->setColorClearValue(m_backgroundColor);
 
+        const puint32 *viewport = m_scene->viewport();
+        const puint32 *rect = m_scene->context()->rect();
+        if (viewport != rect)
+        {
+            renderPass->target()->setScissorTestEnabled(true);
+            renderPass->target()->setScissor(viewport[0], viewport[1], viewport[2], viewport[3]);
+            renderPass->target()->setViewport(viewport[0], 
+                viewport[1], viewport[2], viewport[3]);        
+        }
+
         PShadowPass *shadowPass = PNEW(PShadowPass("shadow", m_scene));
         
         addRenderPass(shadowPass);
@@ -67,6 +77,31 @@ void PRenderer::render(PRenderState *renderState)
     for (puint32 i = 0; i < m_renderPassArray.size(); ++i)
     {
         m_renderPassArray[i]->render(renderState);
+    }
+}
+
+void PRenderer::update()
+{
+    for (puint32 i = 0; i < m_renderPassArray.size(); ++i)
+    {
+        // Update the viewport.
+        if (m_renderPassArray[i]->target()->isDefaultFramebuffer())
+        {
+            const puint32 *viewport = m_scene->viewport();
+            const puint32 *rect = m_scene->context()->rect();
+            if (viewport != rect)
+            {
+                m_renderPassArray[i]->target()->setScissorTestEnabled(true);
+                m_renderPassArray[i]->target()->setScissor(viewport[0], viewport[1], viewport[2], viewport[3]);
+            }
+            else
+            {
+                m_renderPassArray[i]->target()->setScissorTestEnabled(false);
+            }
+            m_renderPassArray[i]->target()->setViewport(viewport[0], viewport[1], viewport[2], viewport[3]);        
+        }
+
+        // Update the background.
     }
 }
     

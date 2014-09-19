@@ -32,14 +32,14 @@ public:
     P_INLINE const PBox &boundingBox() const { return  m_boundingBox; }
 
     // Replace the mesh data. Return true if succeed
-    bool updateData(pfloat32 *vertices, puint32 numVertices, puint16 *indices, puint32 numIndices,
+    pbool updateData(pfloat32 *vertices, puint32 numVertices, puint16 *indices, puint32 numIndices,
         PGlVertexFormat *vertexFormat);
     // Only update the vertex data
-    bool updateVertexData(pfloat32 *vertices);
+    pbool updateVertexData(pfloat32 *vertices);
 
 protected:
     virtual void discardResource();
-    virtual bool restoreResource();
+    virtual pbool restoreResource();
 
 private:
     PMesh(const pchar *id, PMeshCache *meshCache, PResourceManager *resourceManager, pbool useGPUMemory = true);

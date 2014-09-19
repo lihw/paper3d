@@ -56,7 +56,7 @@ class PNode;
 class PKeyframeLess 
 {
 public:
-    bool operator()(const PAbstractKeyframe *left, const PAbstractKeyframe *right) const;
+    pbool operator()(const PAbstractKeyframe *left, const PAbstractKeyframe *right) const;
 };
 
 class P_DLLEXPORT PAnimationResource: public PResourceObject
@@ -89,13 +89,13 @@ public:
 
 protected:
     virtual void discardResource();
-    virtual bool restoreResource();
+    virtual pbool restoreResource();
 
 private:
     PAnimationResource(PResourceManager *parent, const pchar *id, PAnimationTypeEnum type = P_ANIMATION_DATAVALUE); 
     virtual ~PAnimationResource();
     
-    bool load();
+    pbool load();
 
     void removeKeyframe(PAbstractKeyframe *keyframe);
 

@@ -26,6 +26,9 @@ public:
     PRenderTarget();
     ~PRenderTarget();
 
+    // Is the render target rendering to the screen?
+    P_INLINE pbool isDefaultFramebuffer() const { return m_framebuffer == P_NULL; }
+
     void setFrameBuffer(PFrameBuffer *framebuffer);
     
     void setBufferClearEnabled(pbool color, pbool depth, pbool stencil);

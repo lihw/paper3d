@@ -23,7 +23,6 @@ PRenderPass::PRenderPass(const pchar *name, PScene *scene)
     : PEntity()
     , m_name(name)
 {
-    PASSERT(scene != P_NULL);
     m_scene             = scene;
     m_camera            = P_NULL;
     m_renderTarget      = P_NULL;
@@ -32,11 +31,13 @@ PRenderPass::PRenderPass(const pchar *name, PScene *scene)
     
     PRenderTarget *renderTarget = PNEW(PRenderTarget);
 
-    renderTarget->setViewport(m_scene->context()->rect()[0],
-                              m_scene->context()->rect()[1],
-                              m_scene->context()->rect()[2],
-                              m_scene->context()->rect()[3]);
-
+    if (m_scene != P_NULL)
+    {
+        renderTarget->setViewport(m_scene->context()->rect()[0],
+                                  m_scene->context()->rect()[1],
+                                  m_scene->context()->rect()[2],
+                                  m_scene->context()->rect()[3]);
+    }
     setRenderTarget(renderTarget);
 
     PRenderQueue *renderQueue = PNEW(PRenderQueue);
@@ -98,15 +99,12 @@ void PRenderPass::setOverridedMaterial(PMaterial *material)
 void PRenderPass::render(PRenderState *renderState)
 {
     PASSERT(renderState != P_NULL);
-    
-    if (m_camera == P_NULL)
-    {
-        PLOG_WARNING("Render pass %s doesn't have a camera.", m_name.c_str());
-        return ;
-    }
 
     m_renderTarget->use(renderState);
     
-    m_renderQueue->render(m_scene, m_camera, renderState);
+    if (m_camera != P_NULL)
+    {
+        m_renderQueue->render(m_scene, m_camera, renderState);
+    }
 }
     

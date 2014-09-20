@@ -187,9 +187,10 @@ void PScene::onResized(pfloat32 x, pfloat32 y, pfloat32 width, pfloat32 height)
 
 void PScene::setViewport(const puint32 *viewport)
 {
+    const puint32 *rect = m_context->rect();
+
     if (viewport != P_NULL)
     {
-        const puint32 *rect = m_context->rect();
         if (m_viewport == rect)
         {
             m_viewport = PNEWARRAY(puint32, 4);
@@ -201,7 +202,10 @@ void PScene::setViewport(const puint32 *viewport)
     }
     else
     {
-        const puint32 *rect = m_context->rect();
+        if (m_viewport != rect)
+        {
+            PDELETEARRAY(m_viewport);
+        }
         m_viewport = const_cast<puint32 *>(rect);
     }
 

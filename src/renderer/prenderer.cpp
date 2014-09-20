@@ -98,7 +98,8 @@ void PRenderer::update()
             {
                 m_renderPassArray[i]->target()->setScissorTestEnabled(false);
             }
-            m_renderPassArray[i]->target()->setViewport(viewport[0], viewport[1], viewport[2], viewport[3]);        
+
+            m_renderPassArray[i]->target()->setViewport(viewport[0], viewport[1], viewport[2], viewport[3]);
         }
 
         // Update the background.

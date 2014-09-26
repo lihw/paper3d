@@ -24,6 +24,8 @@ public:
     bool convert();
 
 private:
+    FbxString getMeshName(FbxNode *node, FbxMesh *mesh);
+
     bool exportMesh(FbxNode *node, FbxMesh *mesh);
     // Each vertex is only of a triangle, and the number of
     // indices is equal to that of vertices.
@@ -37,6 +39,7 @@ private:
     FbxVector2 getUV(FbxMesh *mesh, int id, int index);
     FbxVector4 getColor(FbxMesh *mesh, int index);
     VertexAttribValue getVertexAttrib(FbxMesh *mesh, int attrib, int index);
+
 };
 
 #endif // !MESHCONVERTER_H

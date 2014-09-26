@@ -142,7 +142,7 @@ bool FbxTool::createProject()
 {
     bool ret = true;
 
-    logInfo("Exporting project %s.\n", m_arguments.projectName.Buffer());
+    logInfo("Parsing %s.", m_arguments.FBXFileName.Buffer());
     
     //
     // Create the folder structure
@@ -159,7 +159,8 @@ bool FbxTool::createProject()
     // Output the mesh to the res directory
     //
     {
-        logInfo("Step 1. exporting meshes.");
+        logInfo("Exporting meshes in %s format:",
+            m_arguments.meshFormat == "obj"? "obj" : "pmh");
         FbxString meshOutputPath = FbxPathUtils::Bind(rootPath.Buffer(), "mesh");
         if (FbxPathUtils::Create(meshOutputPath.Buffer()))
         {
@@ -178,7 +179,7 @@ bool FbxTool::createProject()
     // Output the scene to the res directory
     //
     {
-        logInfo("Step 2. exporting scene graph.");
+        logInfo("Creating scene graph: scene.psc");
         m_arguments.outputFolder = rootPath;
         SceneConverter converter(m_scene, &m_arguments);
         converter.convert();
@@ -186,7 +187,7 @@ bool FbxTool::createProject()
         //
         // Copy texture to the res directory
         //
-        logInfo("Step 3. copying textures.");
+        logInfo("Exporting textures:");
         FbxString textureOutputPath = FbxPathUtils::Bind(rootPath.Buffer(), "texture");
         if (!FbxPathUtils::Create(textureOutputPath.Buffer()))
         {
@@ -244,7 +245,7 @@ bool FbxTool::createProject()
 
                 char cmdline[1024];
                 FBXSDK_snprintf(cmdline, 1024, "jpg2png.exe %s %s", actualPath.Buffer(), dstPath.Buffer());
-                system(cmdline);
+                ret = (system(cmdline) == 0);
             }
             else
             {
@@ -255,6 +256,11 @@ bool FbxTool::createProject()
                     ret = false;
                 }
             }
+
+            if (ret)
+            {
+                logInfo(FbxPathUtils::ChangeExtension(textureName.Lower(), ".png").Buffer());
+            }
         }
     }
 
@@ -262,7 +268,7 @@ bool FbxTool::createProject()
     //
     // The default material (texture.pmt)
     //
-    logInfo("Step 4. copying materials.");
+    logInfo("Creating materials:");
     FbxString materialOutputPath = FbxPathUtils::Bind(rootPath.Buffer(), "material");
     if (!FbxPathUtils::Create(materialOutputPath.Buffer()))
     {
@@ -283,7 +289,7 @@ bool FbxTool::createProject()
 
     if (ret)
     {
-        logInfo("Succeed!");
+        logInfo("texture.pmt");
     }
 
     return ret;

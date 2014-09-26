@@ -47,6 +47,8 @@ public:
 
     void setCamera(SceneNode *camera);
 
+    SceneNode *root() { return m_root; }
+
 private:
     void outputNode(FileStream &stream, SceneNode *node, int depth);
 

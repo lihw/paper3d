@@ -46,22 +46,145 @@ bool SceneConverter::convert()
         for (int i = 0; i < ret->GetChildCount(); i++)
         {
             FbxNode *child = ret->GetChild(i);
-            SceneNode *sceneNode = makeSceneNode(child);
-            if (sceneNode != NULL)
-            {
-                if (sceneNode->type == "camera")
-                {
-                    // The first camera will be the main camera of the scene
-                    scene.setCamera(sceneNode);
-                }
-                scene.addNode(sceneNode, fbxNode2SceneNodes[ret]);
-                fbxNode2SceneNodes.insert(std::make_pair(child, sceneNode));
-            }
             
-            nodes.push_back(child);
+            // Only output visible nodes.
+            if (child->GetVisibility() && child->Show.Get())
+            {
+                SceneNode *sceneNode = makeSceneNode(child);
+                if (sceneNode != NULL)
+                {
+                    if (sceneNode->type == "camera")
+                    {
+                        // The first camera will be the main camera of the scene
+                        scene.setCamera(sceneNode);
+                    }
+                    scene.addNode(sceneNode, fbxNode2SceneNodes[ret]);
+                    fbxNode2SceneNodes.insert(std::make_pair(child, sceneNode));
+                }
+            
+                nodes.push_back(child);
+            }
         }
     }
 
+    // Create a camera if it is not included in FBX. The camera is evaluated
+    // using the bounding box of all visible nodes.
+    if (m_numCameras == 0)
+    {
+        FbxVector4 rootBboxMin;
+        FbxVector4 rootBboxMax;
+        FbxVector4 rootBboxCenter;
+
+        rootBboxMin = FbxVector4(FLT_MAX, FLT_MAX, FLT_MAX, FLT_MAX);
+        rootBboxMax = FbxVector4(-FLT_MAX, -FLT_MAX, -FLT_MAX, -FLT_MAX);
+    
+        FbxNode *node = m_scene->GetRootNode();
+
+        nodes.push_back(node);
+
+        while (!nodes.empty())
+        {
+            FbxNode *ret = nodes.front();
+            nodes.pop_front();
+
+            for (int i = 0; i < ret->GetChildCount(); i++)
+            {
+                FbxNode *child = ret->GetChild(i);
+                
+                nodes.push_back(child);
+            }
+                
+            if (ret->GetChildCount() == 0 &&
+                ret->GetVisibility() && 
+                ret->Show.Get() &&
+                ret->GetMesh() != NULL)
+            {
+                FbxVector4 bboxMin;
+                FbxVector4 bboxMax;
+                FbxVector4 bboxCenter;
+
+                ret->EvaluateGlobalBoundingBoxMinMaxCenter(bboxMin, bboxMax, bboxCenter);
+
+                rootBboxMin[0] = std::min(rootBboxMin[0], bboxMin[0]);
+                rootBboxMin[1] = std::min(rootBboxMin[1], bboxMin[1]);
+                rootBboxMin[2] = std::min(rootBboxMin[2], bboxMin[2]);
+                
+                rootBboxMax[0] = std::max(rootBboxMax[0], bboxMax[0]);
+                rootBboxMax[1] = std::max(rootBboxMax[1], bboxMax[1]);
+                rootBboxMax[2] = std::max(rootBboxMax[2], bboxMax[2]);
+            }
+        }
+
+        rootBboxCenter = (rootBboxMin + rootBboxMax) / 2;
+        FbxVector4 rootBboxSize = rootBboxMax - rootBboxMin;
+            
+        SceneNode *sceneNode = new SceneNode();
+
+        sceneNode->type = FbxString("camera");
+        sceneNode->attributes.push_back(std::make_pair(FbxString("name"), FbxString("camera")));
+        sceneNode->attributes.push_back(std::make_pair(FbxString("fixed"), FbxString("true")));
+
+        double diag = sqrt(rootBboxSize[0] * rootBboxSize[0] + 
+                           rootBboxSize[1] * rootBboxSize[1] + 
+                           rootBboxSize[2] * rootBboxSize[2]) * 0.5;
+            
+        double eye = diag / tan(15.0 * FBXSDK_PI_DIV_180);
+
+        double position[3];
+        double up[3];
+        double znear;
+        double zfar;
+            
+        znear = eye - diag - 1.0f;
+        zfar  = eye + diag + 1.0f;
+
+        if (rootBboxSize[0] <= rootBboxSize[1] && rootBboxSize[0] <= rootBboxSize[2])
+        {
+            position[0] = eye + rootBboxCenter[0]; 
+            position[1] = rootBboxCenter[1];
+            position[2] = rootBboxCenter[2];
+
+            up[0] = 0;
+            up[1] = 1;
+            up[2] = 0;
+        }
+        else if (rootBboxSize[1] <= rootBboxSize[0] && rootBboxSize[1] <= rootBboxSize[2])
+        {
+            position[0] = rootBboxCenter[0]; 
+            position[1] = eye + rootBboxCenter[1];
+            position[2] = rootBboxCenter[2];
+
+            up[0] = 0;
+            up[1] = 0;
+            up[2] = 1;
+        }
+        else
+        {
+            position[0] = rootBboxCenter[0]; 
+            position[1] = rootBboxCenter[1];
+            position[2] = eye + rootBboxCenter[2];
+
+            up[0] = 0;
+            up[1] = 1;
+            up[2] = 0;
+        }
+
+        char lookat[1024];
+        char perspective[1024];
+            
+        FBXSDK_sprintf(lookat, 1024, "eye:%8.5f,%8.5f,%8.5f,center:%8.5f,%8.5f,%8.5f,up:%8.5f,%8.5f,%8.5f",
+                    (float)position[0], (float)position[1], (float)position[2],
+                    (float)rootBboxCenter[0], (float)rootBboxCenter[1], (float)rootBboxCenter[2],
+                    (float)up[0], (float)up[1], (float)up[2]);
+        sceneNode->attributes.push_back(std::make_pair(FbxString("lookat"), FbxString(lookat)));
+            
+        FBXSDK_sprintf(perspective, 1024, "perspective,fov:%8.5f,aspect:-1,znear:%8.5f,zfar:%8.5f",
+                    30.0f, (float)znear, (float)zfar);
+        sceneNode->attributes.push_back(std::make_pair(FbxString("projection"), FbxString(perspective)));
+                    
+        scene.setCamera(sceneNode);
+        scene.addNode(sceneNode, scene.root());
+    }
 
     //
     // Output the file.
@@ -72,14 +195,7 @@ bool SceneConverter::convert()
     FbxString path = FbxPathUtils::Bind(m_arguments->outputFolder, outputFilename.Buffer());
     bool ret = scene.output(path.Buffer());
 
-    if (ret)
-    {
-        FBXSDK_printf("There are %d drawables, %d lights and %d cameras exported.\n",
-            m_numDrawables, m_numLights, m_numCameras);
-
-        FBXSDK_printf("Exported to %s.\n", outputFilename.Buffer());
-    }
-    else
+    if (!ret)
     {
         FBXSDK_printf("Exporting failed!\n\n");
     }
@@ -127,11 +243,11 @@ SceneNode *SceneConverter::makeSceneNode(FbxNode *node)
 
             FbxVector4 position = camera->EvaluatePosition();
             FbxVector4 center = camera->EvaluateLookAtPosition();
-            FbxVector4 up = camera->EvaluateUpDirection(position, center);
-            if (up.Length() < 1e-4f)
-            {
-                up = FbxVector4(0, 1, 0, 0);
-            }
+            // FIXME: seems EvaluateUpDirection doesn't give correct result as it 
+            // is affected by its parent nodes' tranforms however we attach camera
+            // to the root in paper3d's scene.
+            // FbxVector4 up = camera->EvaluateUpDirection(position, center);
+            FbxDouble3 up = camera->UpVector.Get();
 
             char buffer[1024];
             FBXSDK_sprintf(buffer, 1024, "eye:%8.5f,%8.5f,%8.5f,center:%8.5f,%8.5f,%8.5f,up:%8.5f,%8.5f,%8.5f",

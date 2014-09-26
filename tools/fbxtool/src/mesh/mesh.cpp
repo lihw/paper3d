@@ -369,3 +369,4 @@ int Mesh::duplicateVertex(int vertexId)
     return newVertexId;
 }
 
+

@@ -41,10 +41,20 @@ bool MeshConverter::convert()
     FbxNode *node = firstNode();
     while (node != NULL)
     {
-        FbxMesh *mesh = node->GetMesh();
-        if (mesh != NULL)
+        // Only output visible nodes. (3DsMax only uses Show property)
+        if (node->GetVisibility() && node->Show.Get())
         {
-            meshes.insert(std::make_pair(mesh, node));
+            // Find all meshes connected to this node.
+            int count = node->GetNodeAttributeCount();
+            for (int i = 0; i < count; ++i)
+            {
+                FbxNodeAttribute *attrib = node->GetNodeAttributeByIndex(i);
+                if (attrib->GetAttributeType() == FbxNodeAttribute::eMesh)
+                {
+                    FbxMesh *mesh = reinterpret_cast<FbxMesh*>(attrib);
+                    meshes.insert(std::make_pair(mesh, node));
+                }
+            }
         }
         node = nextNode();
     }
@@ -54,20 +64,14 @@ bool MeshConverter::convert()
     //
     std::set<std::pair<FbxMesh *, FbxNode *>, Comp>::iterator it = meshes.begin();
     std::set<std::pair<FbxMesh *, FbxNode *>, Comp>::iterator ie = meshes.end();
-	int i = 0;
     while (it != ie)
     {
         FbxMesh *mesh = (*it).first;
         FbxNode *node = (*it).second;
-        const char *meshName = mesh->GetName();
 
-        if (!exportMesh(node, mesh))
-        {
-            logError("Failed to export mesh \"%s\".", meshName);
-        }
+        exportMesh(node, mesh);
         
         ++it;
-		i++;
     }
 
     return true;
@@ -75,13 +79,15 @@ bool MeshConverter::convert()
 
 bool MeshConverter::exportMesh(FbxNode *node, FbxMesh *mesh)
 {
+    FbxString meshName = getMeshName(node, mesh);
+
     int polygonCount = mesh->GetPolygonCount();
     for (int i = 0; i < polygonCount; ++i)
     {
         int polygonSize = mesh->GetPolygonSize(i);
         if (polygonSize != 3)
         {
-			FBXSDK_printf("Warning: %s is not a triangle mesh.\n");
+			FBXSDK_printf("Warning: %s is not a triangle mesh.\n", meshName.Buffer());
 
 			return false;
         }
@@ -218,28 +224,13 @@ bool MeshConverter::exportMesh(FbxNode *node, FbxMesh *mesh)
         myMesh.box()[5] = std::max(myMesh.box()[5], position[2]);
     }
         
-    static FbxUInt32 i = 0;
-    FbxString prefix;
-    const char *meshName = mesh->GetName();
-    if (meshName == NULL || meshName[0] == 0)
-    {
-        meshName = node->GetName();
-    }
-    if (meshName == NULL || meshName[0] == 0)
-    {
-        prefix = FbxString("mesh_") + FbxString(int(i++));
-    }
-    else
-    {
-        prefix = FbxString(meshName);
-    }
 
     //
     // Create a file stream
     //
     if (m_arguments->meshFormat == "obj")
     {
-        FbxString outputFileName = prefix.Lower() + FbxString(".obj");
+        FbxString outputFileName = meshName.Lower() + FbxString(".obj");
         FbxString path = FbxPathUtils::Bind(m_arguments->outputFolder, outputFileName.Buffer());
 
         MeshExporter exporter;
@@ -248,12 +239,11 @@ bool MeshConverter::exportMesh(FbxNode *node, FbxMesh *mesh)
             return false;
         }
                 
-        FBXSDK_printf("mesh \"%s\" (verts=%d, faces=%d) exported to %s.\n", prefix.Buffer(),
-            myMesh.numberOfVertices(), myMesh.numberOfIndices() / 3, path.Buffer());
+        logInfo("%s f:%d v:%d", meshName.Buffer(), myMesh.numberOfIndices() / 3, myMesh.numberOfVertices());
     }
     else if (m_arguments->meshFormat == "pmh")
     {
-        FbxString outputFileName = prefix.Lower() + FbxString(".pmh");
+        FbxString outputFileName = meshName.Lower() + FbxString(".pmh");
 
         FbxString path = FbxPathUtils::Bind(m_arguments->outputFolder, outputFileName.Buffer());
 
@@ -263,13 +253,7 @@ bool MeshConverter::exportMesh(FbxNode *node, FbxMesh *mesh)
             return false;
         }
 
-        //FBXSDK_printf("mesh \"%s\" (verts=%d, faces=%d) exported to %s.\n", prefix.Buffer(),
-        //    myMesh.numberOfVertices(), myMesh.numberOfIndices() / 3, path.Buffer());
-
-        i++;
-    }
-    else if (m_arguments->meshFormat == "objc")
-    {
+        logInfo("%s f:%d v:%d", meshName.Buffer(), myMesh.numberOfIndices() / 3, myMesh.numberOfVertices());
     }
     else
     {
@@ -702,3 +686,21 @@ bool MeshConverter::isControlPointSplitted(FbxLayerElement *element)
     return ret;
 }
 */
+    
+FbxString MeshConverter::getMeshName(FbxNode *node, FbxMesh *mesh)
+{
+    static FbxUInt32 i = 0;
+    FbxString prefix;
+    const char *meshName = mesh->GetName();
+    if (meshName == NULL || meshName[0] == 0)
+    {
+        meshName = node->GetName();
+    }
+
+    if (meshName == NULL || meshName[0] == 0)
+    {
+        return FbxString("mesh_") + FbxString(int(i++));
+    }
+        
+    return FbxString(meshName);
+}

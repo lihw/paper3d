@@ -10,7 +10,7 @@
 #include "scene.h" 
 
 #include <common/filestream.h>
-
+#include <common/log.h>
 
 Scene::Scene()
 {
@@ -70,6 +70,11 @@ void Scene::outputNode(FileStream &stream, SceneNode *node, int depth)
     {
         stream.printf("  ");
     }
+        
+    for (int i = 0; i < depth; ++i)
+    {
+        FBXSDK_printf("  ");
+    }
 
     // Output the type and attributes;
     stream.printf("<%s ", node->type.Buffer());
@@ -99,6 +104,13 @@ void Scene::outputNode(FileStream &stream, SceneNode *node, int depth)
         FbxString texName = node->texture;
         FbxString pngTexName = FbxPathUtils::ChangeExtension(texName, ".png");
         stream.printf("<material id=\"material/texture.pmt\" texture=\"texture/%s\" />\n", pngTexName.Buffer());
+        logInfo("%s(%s) mesh:%s tex:%s", node->attributes[0].second.Buffer(), 
+            node->type.Buffer(), node->geometry.Lower().Buffer(), pngTexName.Buffer());
+    }
+    else
+    {
+        logInfo("%s(%s)", node->attributes[0].second.Buffer(), node->type.Buffer());
+        // TODO: don't output "node" node which has no child.
     }
 
     // Output children

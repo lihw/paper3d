@@ -120,16 +120,18 @@ void PTextureCache::swapOut()
     
 pbool PTextureCache::loadImages(const pchar *id)
 {
-    if (id[pstrlen(id) - 1] == '/')
+    const pchar *asterisk = pstrchr(id, '*');
+    if (asterisk != P_NULL)
     {
+        const pchar *suffix = pstrchr(asterisk, '.');
         const pchar *faceNames[6] = 
         {
-            "posx.png",
-            "negx.png",
-            "posy.png",
-            "negy.png",
-            "posz.png",
-            "negz.png"
+            "posx",
+            "negx",
+            "posy",
+            "negy",
+            "posz",
+            "negz"
         };
 
         m_numImages = 6;
@@ -140,21 +142,25 @@ pbool PTextureCache::loadImages(const pchar *id)
         m_images[4] = P_NULL;
         m_images[5] = P_NULL;
 
+        pchar dirPath[1024];
+        pstrncpy(dirPath, id, asterisk - id);
+
         for (pint32 i = 0; i < 6; i++)
         {
-            PString path = PString(m_id) + PString(faceNames[i]);
+            pchar path[1024];
+            psprintf(path, 1024, "%s%s%s", dirPath, faceNames[i], suffix);
 
             PInputStream inputStream;
-            if (!archive()->createInputStream(path.c_str(), &inputStream))
+            if (!archive()->createInputStream(path, &inputStream))
             {
-                PLOG_ERROR("Failed to read image at %s", path.c_str());
+                PLOG_ERROR("Failed to read image at %s", path);
                 goto fail_ret;
             }
 
-            m_images[i] = PNEW(PImage(path.c_str(), inputStream));
+            m_images[i] = PNEW(PImage(path, inputStream));
             if (m_images[i]->data() == P_NULL)
             {
-                PLOG_ERROR("Failed to read image at %s", path.c_str());
+                PLOG_ERROR("Failed to read image at %s", path);
                 goto fail_ret;
             }
         }

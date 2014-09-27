@@ -47,6 +47,9 @@ MyScene::MyScene(PContext *context)
     PTexture *texture = resMgr->getTexture("bg.png");
     texture->setRepeatWrappingEnabled(true);
     m_background->setTexture(texture);
+    pfloat32 height = (pfloat32)texture->height() / (pfloat32)rect[3];
+    m_background->setSize(1.0f, height * 2.0f);
+    m_background->setLayout(PBackground::LAYOUT_CENTER | PBackground::LAYOUT_TOP);
 
     setBackgroundColor(pColorRGBA(1.0f, 1.0f, 1.0f, 0.0f));
 }

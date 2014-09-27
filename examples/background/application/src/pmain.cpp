@@ -23,8 +23,8 @@ void pMain(int argc, char* argv[])
         PContextProperties contextProperties;
         contextProperties.m_contextName = PString("background");
         contextProperties.m_archiveName = PString("background.par");
-        contextProperties.m_windowWidth = 480;
-        contextProperties.m_windowHeight = 800;
+        contextProperties.m_windowWidth = 640;
+        contextProperties.m_windowHeight = 480;
 #if defined P_WIN32
         contextProperties.m_multisamples = 2;
 #endif

@@ -14,6 +14,7 @@
 #include <Paper3D/pscenemanager.h>
 
 #include <PFoundation/pevent.h>
+#include <PFoundation/pgesturemanager.h>
 #include <PFoundation/pinput.h>
     
 MyContext::MyContext(const PContextProperties &properties)
@@ -38,14 +39,17 @@ pbool MyContext::onInitialized()
 
     PLOG_INFO("Press 'F' to switch background fill mode.");
 
+    PGestureManager *gestureMgr = gestureManager();
+    gestureMgr->setGestureEnabled(P_GESTURE_TYPE_PAN, true);
+
     return true;
 }
 
 pbool MyContext::onUpdate()
 {
 	pfloat32 deltaTime = clock().deltaTime();
-	m_value->update(puint32(deltaTime));    
-    pfloat32 speed = m_value->getValue();
+	m_value->update(deltaTime);    
+    pfloat32 speed = m_value->value();
 	
     pfloat32 offset = speed * deltaTime / 20000.0f;
 	m_scene->rotate(offset);
@@ -78,22 +82,17 @@ pbool MyContext::onKeyboard(PEvent *event)
     return true;
 }
 
-pbool MyContext::onPanBegin(PEvent *event)
+void MyContext::onPanBegin(pint32 x, pint32 y)
 {
-	return true;
 }
 
-pbool MyContext::onPan(PEvent *event)
+void MyContext::onPan(pint32 x, pint32 y, pint32 dx, pint32 dy)
 {
-	pint32 deltaX = event->parameter(P_EVENTPARAMETER__PAN_DELTA_X).toInt();
-
-	m_value->modifySpeed(-deltaX * (15000.0f / 4096.0f));
-
-	return true;
+	m_value->modifySpeed(-dx* (15000.0f / 4096.0f));
 }
 
-pbool MyContext::onPanEnd(PEvent *event)
+void MyContext::onPanEnd(pint32 x, pint32 y, pint32 dx, pint32 dy)
 {
-	return true;
 }
+
     

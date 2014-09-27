@@ -1,8 +1,7 @@
 // mycontext.h
-// "Background" example. 
+// "SkyBox" example. The first example.
 //
-// Copyright 2012 - 2014 Future Interface. 
-// This software is licensed under the terms of the MIT license.
+// Copyright 2012 - 2014 Future Interface . All rights reserved.
 //
 // Hongwei Li lihw81@gmail.com
 //
@@ -12,8 +11,6 @@
 
 #include <PFoundation/pcontext.h>
 #include <PFoundation/pcontextproperties.h>
-#include <PFoundation/pinterpolatedvalue.h>
-
 
 class MyScene;
 
@@ -28,13 +25,9 @@ public:
     virtual void onDestroy();
     
     virtual pbool onKeyboard(PEvent *event);
-    virtual void onPanBegin(pint32 x, pint32 y);
-    virtual void onPan(pint32 x, pint32 y, pint32 dx, pint32 dy);
-    virtual void onPanEnd(pint32 x, pint32 y, pint32 dx, pint32 dy);
 
 private:
     MyScene *m_scene;
-    PInterpolatedValue *m_value;
 };
 
 #endif

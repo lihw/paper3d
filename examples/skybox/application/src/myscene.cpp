@@ -18,6 +18,14 @@
 MyScene::MyScene(PContext *context)
     : PScene("my-scene", context)
 {
+    if (!load("scene.psc"))
+    {
+        PASSERT(!"Failed to load scene.psc");
+        return ;
+    }
+    
+    // Create the skybox in a manual way.
+    /*
     PResourceManager *resMgr = context->module<PResourceManager>("resource-manager");
 
     // -------------------------------------------------------------- 
@@ -36,6 +44,7 @@ MyScene::MyScene(PContext *context)
     // -------------------------------------------------------------- 
     PSkyBox *skybox = PNEW(PSkyBox("skybox", this));
     skybox->setTexture(resMgr->getTexture("sky/*.tga"));
+    */
 }
 
 MyScene::~MyScene()

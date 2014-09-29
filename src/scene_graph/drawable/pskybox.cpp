@@ -133,8 +133,8 @@ pbool PSkyBox::unpack(const PXmlElement* xmlElement)
     if (textureName != P_NULL)
     {
         PResourceManager *resourceManager = scene()->context()->module<PResourceManager>("resource-manager");
-        m_texture = resourceManager->getTexture(textureName);
-        setTexture(m_texture);
+        PTexture *texture = resourceManager->getTexture(textureName);
+        setTexture(texture);
         return true;
     }
     else

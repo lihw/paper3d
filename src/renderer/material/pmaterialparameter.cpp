@@ -395,7 +395,7 @@ void PMaterialParameter::upload(PMaterialResource *materialResource, PRenderStat
 #if defined P_DEBUG
         if (m_value.t == P_NULL)
         {
-            PLOG_DEBUG("NULL texture parameter in material %s", materialResource->id());
+            PLOG_DEBUG("Invalid texture parameter in material %s.", materialResource->id());
         }
 #endif
         PASSERT(m_value.t != P_NULL);

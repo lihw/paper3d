@@ -349,8 +349,7 @@ pbool PScene::unpack(const PXmlElement* xmlElement)
                     {
                         if (pstrcmp(mipmapValue, "true") == 0)
                         {
-                            // TODO:
-                            PASSERT_NOTIMPLEMENTED();
+                            texture->setMipmap(true);
                         }
                     }
                 }

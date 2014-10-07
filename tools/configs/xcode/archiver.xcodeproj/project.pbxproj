@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EDA548AC19C0405300DC41F8 /* archiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDA548A919C0405300DC41F8 /* archiver.cpp */; };
-		EDA548AD19C0405300DC41F8 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDA548AB19C0405300DC41F8 /* main.cpp */; };
 		EDA548FB19C0868E00DC41F8 /* archiver in CopyFiles */ = {isa = PBXBuildFile; fileRef = EDA5489D19C03FB700DC41F8 /* archiver */; };
 		EDA548FD19C08A3600DC41F8 /* libcommon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDA548FC19C08A3600DC41F8 /* libcommon.a */; };
 		EDA548FF19C08A5D00DC41F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDA548FE19C08A5D00DC41F8 /* Foundation.framework */; };
+		EDA60C9419D9211A00D6C538 /* archiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDA60C9119D9211A00D6C538 /* archiver.cpp */; };
+		EDA60C9519D9211A00D6C538 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = EDA60C9319D9211A00D6C538 /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,11 +29,11 @@
 
 /* Begin PBXFileReference section */
 		EDA5489D19C03FB700DC41F8 /* archiver */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = archiver; sourceTree = BUILT_PRODUCTS_DIR; };
-		EDA548A919C0405300DC41F8 /* archiver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = archiver.cpp; path = ../../../archiver/src/archiver.cpp; sourceTree = "<group>"; };
-		EDA548AA19C0405300DC41F8 /* archiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = archiver.h; path = ../../../archiver/src/archiver.h; sourceTree = "<group>"; };
-		EDA548AB19C0405300DC41F8 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../archiver/src/main.cpp; sourceTree = "<group>"; };
 		EDA548FC19C08A3600DC41F8 /* libcommon.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcommon.a; path = DerivedData/tools/Build/Products/Debug/libcommon.a; sourceTree = "<group>"; };
 		EDA548FE19C08A5D00DC41F8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		EDA60C9119D9211A00D6C538 /* archiver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = archiver.cpp; path = ../../../archiver/src/archiver.cpp; sourceTree = "<group>"; };
+		EDA60C9219D9211A00D6C538 /* archiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = archiver.h; path = ../../../archiver/src/archiver.h; sourceTree = "<group>"; };
+		EDA60C9319D9211A00D6C538 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = main.cpp; path = ../../../archiver/src/main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,9 +70,9 @@
 		EDA5489F19C03FB700DC41F8 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				EDA548A919C0405300DC41F8 /* archiver.cpp */,
-				EDA548AA19C0405300DC41F8 /* archiver.h */,
-				EDA548AB19C0405300DC41F8 /* main.cpp */,
+				EDA60C9119D9211A00D6C538 /* archiver.cpp */,
+				EDA60C9219D9211A00D6C538 /* archiver.h */,
+				EDA60C9319D9211A00D6C538 /* main.cpp */,
 			);
 			name = src;
 			path = archiver;
@@ -113,6 +113,9 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
+				es,
+				se,
 			);
 			mainGroup = EDA5489419C03FB700DC41F8;
 			productRefGroup = EDA5489E19C03FB700DC41F8 /* Products */;
@@ -129,8 +132,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDA548AD19C0405300DC41F8 /* main.cpp in Sources */,
-				EDA548AC19C0405300DC41F8 /* archiver.cpp in Sources */,
+				EDA60C9419D9211A00D6C538 /* archiver.cpp in Sources */,
+				EDA60C9519D9211A00D6C538 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +227,105 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DerivedData/tools/Build/Products/Debug",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/build/Bamboo.build/Debug-iphoneos/bamboo.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/build/Bamboo.build/Debug-iphoneos/bamboo.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/build/Bamboo.build/Debug-iphoneos/bamboo.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/build/Bamboo.build/Release-iphoneos/bamboo.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/build/Bamboo.build/Release-iphoneos/bamboo.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/build/Bamboo.build/Release-iphoneos/bamboo.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/DerivedData/Bamboo/Build/Products/Debug-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/DerivedData/Bamboo/Build/Products/Debug-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/DerivedData/Bamboo/Build/Products/Debug-universal",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/DerivedData/Bamboo/Build/Products/Release-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/DerivedData/Bamboo/Build/Products/Release-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/DerivedData/Bamboo/Build/Products/Release-universal",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/examples/book/application/configs/ios/DerivedData/book/Build/Products/Debug-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/examples/book/application/configs/ios/DerivedData/book/Build/Products/Debug-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/examples/book/application/configs/ios/DerivedData/book/Build/Products/Debug-universal",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/examples/book/application/configs/ios/DerivedData/book/Build/Products/Release-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/examples/book/application/configs/ios/DerivedData/book/Build/Products/Release-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/examples/book/application/configs/ios/DerivedData/book/Build/Products/Release-universal",
+					/Users/hwli/Desktop/Projects/FutureInterface/bamboo/lib/ios/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/build/emulator,
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/Bamboo.build/Debug-iphonesimulator/bamboo.build/Objects-normal/i386",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/Bamboo.build/Debug-iphonesimulator/bamboo.build/Objects-normal/x86_64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/CordovaLib.build/Debug-iphoneos/CordovaLib.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/CordovaLib.build/Debug-iphoneos/CordovaLib.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/CordovaLib.build/Debug-iphoneos/CordovaLib.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/CordovaLib.build/Release-iphonesimulator/CordovaLib.build/Objects-normal/i386",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/CordovaLib.build/Release-iphonesimulator/CordovaLib.build/Objects-normal/x86_64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/Paper3D.build/Debug-iphonesimulator/paper3d.build/Objects-normal/i386",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/Paper3D.build/Debug-iphonesimulator/paper3d.build/Objects-normal/x86_64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/Tech.build/Debug-iphonesimulator/foundation.build/Objects-normal/i386",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/Tech.build/Debug-iphonesimulator/foundation.build/Objects-normal/x86_64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Products/Debug-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Products/Debug-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Products/Debug-universal",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Products/Release-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Products/Release-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Products/Release-universal",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/build/Paper3D.build/Debug-iphoneos/paper3d.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/build/Paper3D.build/Debug-iphoneos/paper3d.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/build/Paper3D.build/Debug-iphoneos/paper3d.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/build/Paper3D.build/Release-iphoneos/paper3d.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/build/Paper3D.build/Release-iphoneos/paper3d.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/build/Paper3D.build/Release-iphoneos/paper3d.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/DerivedData/Paper3D/Build/Intermediates/Paper3D.build/Debug-iphonesimulator/paper3d.build/Objects-normal/i386",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/DerivedData/Paper3D/Build/Intermediates/Paper3D.build/Debug-iphonesimulator/paper3d.build/Objects-normal/x86_64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/DerivedData/Paper3D/Build/Products/Debug-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/DerivedData/Paper3D/Build/Products/Debug-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/DerivedData/Paper3D/Build/Products/Debug-universal",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/DerivedData/Paper3D/Build/Products/Release-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/DerivedData/Paper3D/Build/Products/Release-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/DerivedData/Paper3D/Build/Products/Release-universal",
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/lib/ios/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/lib/ios/Release,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/3rdparty/assimp/lib,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/3rdparty/fbxsdk/lib/vs2012/x64/debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/3rdparty/fbxsdk/lib/vs2012/x64/release,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/3rdparty/fbxsdk/lib/vs2012/x86/debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/3rdparty/fbxsdk/lib/vs2012/x86/release,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/3rdparty/libjpeg8d/lib,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/common/lib/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/common/lib/Release,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/common/lib/xcode/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/common/lib/xcode/Release,
+					"$(PROJECT_DIR)/DerivedData/tools/Build/Products/Release",
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/ios/libpng/lib/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/ios/libpng/lib/Release,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/ios/tinyxml/lib/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/ios/tinyxml/lib/Release,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/ios/zlib/lib/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/ios/zlib/lib/Release,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/enet/lib/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/enet/lib/Release,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/gles20/lib,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/libpng/lib/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/libpng/lib/Release,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/tinyxml/lib/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/tinyxml/lib/Release,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/zlib/lib/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/zlib/lib/Release,
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Debug-iphoneos/foundation.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Debug-iphoneos/foundation.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Debug-iphoneos/foundation.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Debug-iphoneos/platform.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Debug-iphoneos/platform.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Debug-iphoneos/platform.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Release-iphoneos/foundation.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Release-iphoneos/foundation.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Release-iphoneos/foundation.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Release-iphoneos/platform.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Release-iphoneos/platform.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Release-iphoneos/platform.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/DerivedData/Tech/Build/Products/Debug-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/DerivedData/Tech/Build/Products/Debug-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/DerivedData/Tech/Build/Products/Debug-universal",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/DerivedData/Tech/Build/Products/Release-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/DerivedData/Tech/Build/Products/Release-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/DerivedData/Tech/Build/Products/Release-universal",
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/lib/ios/ES20_Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/lib/ios/ES20_Release,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -240,6 +342,105 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/DerivedData/tools/Build/Products/Debug",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/build/Bamboo.build/Debug-iphoneos/bamboo.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/build/Bamboo.build/Debug-iphoneos/bamboo.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/build/Bamboo.build/Debug-iphoneos/bamboo.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/build/Bamboo.build/Release-iphoneos/bamboo.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/build/Bamboo.build/Release-iphoneos/bamboo.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/build/Bamboo.build/Release-iphoneos/bamboo.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/DerivedData/Bamboo/Build/Products/Debug-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/DerivedData/Bamboo/Build/Products/Debug-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/DerivedData/Bamboo/Build/Products/Debug-universal",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/DerivedData/Bamboo/Build/Products/Release-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/DerivedData/Bamboo/Build/Products/Release-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/configs/ios/DerivedData/Bamboo/Build/Products/Release-universal",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/examples/book/application/configs/ios/DerivedData/book/Build/Products/Debug-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/examples/book/application/configs/ios/DerivedData/book/Build/Products/Debug-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/examples/book/application/configs/ios/DerivedData/book/Build/Products/Debug-universal",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/examples/book/application/configs/ios/DerivedData/book/Build/Products/Release-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/examples/book/application/configs/ios/DerivedData/book/Build/Products/Release-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/examples/book/application/configs/ios/DerivedData/book/Build/Products/Release-universal",
+					/Users/hwli/Desktop/Projects/FutureInterface/bamboo/lib/ios/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/build/emulator,
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/Bamboo.build/Debug-iphonesimulator/bamboo.build/Objects-normal/i386",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/Bamboo.build/Debug-iphonesimulator/bamboo.build/Objects-normal/x86_64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/CordovaLib.build/Debug-iphoneos/CordovaLib.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/CordovaLib.build/Debug-iphoneos/CordovaLib.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/CordovaLib.build/Debug-iphoneos/CordovaLib.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/CordovaLib.build/Release-iphonesimulator/CordovaLib.build/Objects-normal/i386",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/CordovaLib.build/Release-iphonesimulator/CordovaLib.build/Objects-normal/x86_64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/Paper3D.build/Debug-iphonesimulator/paper3d.build/Objects-normal/i386",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/Paper3D.build/Debug-iphonesimulator/paper3d.build/Objects-normal/x86_64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/Tech.build/Debug-iphonesimulator/foundation.build/Objects-normal/i386",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Intermediates/Tech.build/Debug-iphonesimulator/foundation.build/Objects-normal/x86_64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Products/Debug-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Products/Debug-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Products/Debug-universal",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Products/Release-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Products/Release-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/bamboo/projects/reader/bambooreader/platforms/ios/DerivedData/BambooReader/Build/Products/Release-universal",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/build/Paper3D.build/Debug-iphoneos/paper3d.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/build/Paper3D.build/Debug-iphoneos/paper3d.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/build/Paper3D.build/Debug-iphoneos/paper3d.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/build/Paper3D.build/Release-iphoneos/paper3d.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/build/Paper3D.build/Release-iphoneos/paper3d.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/build/Paper3D.build/Release-iphoneos/paper3d.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/DerivedData/Paper3D/Build/Intermediates/Paper3D.build/Debug-iphonesimulator/paper3d.build/Objects-normal/i386",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/DerivedData/Paper3D/Build/Intermediates/Paper3D.build/Debug-iphonesimulator/paper3d.build/Objects-normal/x86_64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/DerivedData/Paper3D/Build/Products/Debug-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/DerivedData/Paper3D/Build/Products/Debug-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/DerivedData/Paper3D/Build/Products/Debug-universal",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/DerivedData/Paper3D/Build/Products/Release-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/DerivedData/Paper3D/Build/Products/Release-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/paper3d/configs/ios/DerivedData/Paper3D/Build/Products/Release-universal",
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/lib/ios/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/lib/ios/Release,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/3rdparty/assimp/lib,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/3rdparty/fbxsdk/lib/vs2012/x64/debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/3rdparty/fbxsdk/lib/vs2012/x64/release,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/3rdparty/fbxsdk/lib/vs2012/x86/debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/3rdparty/fbxsdk/lib/vs2012/x86/release,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/3rdparty/libjpeg8d/lib,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/common/lib/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/common/lib/Release,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/common/lib/xcode/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/paper3d/tools/common/lib/xcode/Release,
+					"$(PROJECT_DIR)/DerivedData/tools/Build/Products/Release",
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/ios/libpng/lib/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/ios/libpng/lib/Release,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/ios/tinyxml/lib/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/ios/tinyxml/lib/Release,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/ios/zlib/lib/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/ios/zlib/lib/Release,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/enet/lib/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/enet/lib/Release,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/gles20/lib,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/libpng/lib/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/libpng/lib/Release,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/tinyxml/lib/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/tinyxml/lib/Release,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/zlib/lib/Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/3rdparty/platforms/msvc2012/zlib/lib/Release,
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Debug-iphoneos/foundation.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Debug-iphoneos/foundation.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Debug-iphoneos/foundation.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Debug-iphoneos/platform.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Debug-iphoneos/platform.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Debug-iphoneos/platform.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Release-iphoneos/foundation.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Release-iphoneos/foundation.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Release-iphoneos/foundation.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Release-iphoneos/platform.build/Objects-normal/arm64",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Release-iphoneos/platform.build/Objects-normal/armv7",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/build/Tech.build/Release-iphoneos/platform.build/Objects-normal/armv7s",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/DerivedData/Tech/Build/Products/Debug-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/DerivedData/Tech/Build/Products/Debug-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/DerivedData/Tech/Build/Products/Debug-universal",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/DerivedData/Tech/Build/Products/Release-iphoneos",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/DerivedData/Tech/Build/Products/Release-iphonesimulator",
+					"/Users/hwli/Desktop/Projects/FutureInterface/tech/configs/ios/DerivedData/Tech/Build/Products/Release-universal",
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/lib/ios/ES20_Debug,
+					/Users/hwli/Desktop/Projects/FutureInterface/tech/lib/ios/ES20_Release,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

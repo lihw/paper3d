@@ -129,7 +129,7 @@ bool Archiver::writeEntries()
     header.version[0] = 0x00;
     header.version[1] = 0x00;
     header.version[2] = (FI_VERSION >> 8);
-    header.version[3] = (FI_VERSION && 0x00ff);
+    header.version[3] = (FI_VERSION & 0x00ff);
 
     header.endianess = 0x01020304;
 
@@ -255,7 +255,8 @@ bool Archiver::readDirectory(const char *prefix, const char *dir)
                 // Find first file will always return "." and ".." 
                 // as the first two directories.
                 if (strcmp(dirEntry->d_name, ".") != 0 &&
-                    strcmp(dirEntry->d_name, "..") != 0)
+                    strcmp(dirEntry->d_name, "..") != 0 &&
+                    strcmp(dirEntry->d_name, ".DS_Store") != 0)
                 {
                     //Is the entity a File or Folder?
                     if (dirEntry->d_type == DT_DIR)

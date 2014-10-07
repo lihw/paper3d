@@ -38,6 +38,7 @@ public:
 
     void setRepeatWrappingEnabled(pbool enabled, pbool force = false);
     void setLinearFilteringEnabled(pbool enabled, pbool force = false);
+    void setMipmap(pbool enabled, pbool force = false);
     puint32 textureBytes() const;
     PGlTexture *textureObject() const { return m_textureObject; }
 

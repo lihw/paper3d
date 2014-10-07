@@ -180,6 +180,28 @@ void PTexture::setLinearFilteringEnabled(pbool enabled, pbool force)
     m_linearFiltering = enabled;
 }
 
+void PTexture::setMipmap(pbool enabled, pbool force)
+{
+    if (m_mipmap == enabled && !force)
+    {
+        return ;
+    }
+    
+    if (m_textureObject != P_NULL)
+    {
+        if (enabled)
+        {
+            m_textureObject->setMipmap();
+        }
+        else
+        {
+            // TODO: regenerate the texture without mipmap.
+            PASSERT_NOTIMPLEMENTED();
+        }
+        m_mipmap = enabled;
+    }
+}
+
 void PTexture::discardResource()
 {
     if (m_framebuffer == P_NULL)

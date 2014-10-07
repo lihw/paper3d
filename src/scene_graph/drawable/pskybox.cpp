@@ -37,7 +37,7 @@ static const pchar *SKYBOX_PMT =
 "      void main()\n"
 "      {\n"
 "          vec4 pos = MVP * vec4(position, 1);\n"
-"          gl_Position = pos.xyww;\n"
+"          gl_Position = vec4(pos.xy, pos.w * 0.99, pos.w);\n"
 "          vTexCoord = position;\n"
 "      }\n"
 "    </vs>\n"

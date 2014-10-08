@@ -62,14 +62,11 @@ void MyContext::onDestroy()
 	PDELETE(m_value);
 }
 
-pbool MyContext::onKeyboard(PEvent *event)
+void MyContext::onKeyboard(puint32 state, puint32 key, puint32 scancode)
 {
-	pint32 key = event->parameter(P_EVENTPARAMETER__KEY_SCANCODE).toInt();
-	pint32 type = event->getType();
-
-	if (type == P_EVENT__KEYDOWN)
+    if ((state & 0x03)== P_KEY_DEVICE_STATE_UP)
 	{
-		switch (key)
+		switch (scancode)
 		{
 		case P_KEY_ESC:
             quit();
@@ -78,8 +75,6 @@ pbool MyContext::onKeyboard(PEvent *event)
             m_scene->switchBackgroundFillMode();
 		}
 	}
-
-    return true;
 }
 
 void MyContext::onPanBegin(pint32 x, pint32 y)
@@ -91,7 +86,7 @@ void MyContext::onPan(pint32 x, pint32 y, pint32 dx, pint32 dy)
 	m_value->modifySpeed(-dx* (15000.0f / 4096.0f));
 }
 
-void MyContext::onPanEnd(pint32 x, pint32 y, pint32 dx, pint32 dy)
+void MyContext::onPanEnd()
 {
 }
 

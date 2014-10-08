@@ -33,12 +33,12 @@ MyScene::MyScene(PContext *context)
     m_teapot = PNEW(PDrawable("teapot", this));
     PAbstractGeometry *geometry = PNEW(PGeometryMesh("teapot.pmh", resMgr));
     PMaterial *material = PNEW(PMaterial("teapot.pmt", resMgr));
-    material->parameter("envmap") = resMgr->getTexture("skybox/");
+    material->parameter("envmap") = resMgr->getTexture("skybox/*.png");
     m_teapot->setGeometry(geometry);
     m_teapot->setMaterial(material);
 
     m_skybox = PNEW(PSkyBox("skybox", this));
-    m_skybox->setTexture(resMgr->getTexture("skybox/"));
+    m_skybox->setTexture(resMgr->getTexture("skybox/*.png"));
 }
 
 MyScene::~MyScene()

@@ -66,33 +66,8 @@ void MyScene::setRotating(pbool rotating)
     m_rotating = rotating;
 }
 
-void MyScene::rotate(const PMatrix3x3 &matrix)
+void MyScene::rotate(const PQuaternion &quat)
 {
-    PVector3 position = m_drawable->transform().translation();
-
-    pfloat32 m[16] = 
-    {
-        matrix.m_m[0],
-        matrix.m_m[1],
-        matrix.m_m[2],
-        0,
-
-        matrix.m_m[3],
-        matrix.m_m[4],
-        matrix.m_m[5],
-        0.0f,
-        
-        matrix.m_m[6],
-        matrix.m_m[7],
-        matrix.m_m[8],
-        0.0f,
-
-        position[0],
-        position[1],
-        position[2],
-        1.0f,
-    };
-
-    m_drawable->transform().setMatrix4x4(m);
+    m_drawable->transform().setQuaternion(quat.m_q[0], quat.m_q[1], quat.m_q[2], quat.m_q[3]);
 }
 

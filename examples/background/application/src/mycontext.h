@@ -23,14 +23,14 @@ public:
     MyContext(const PContextProperties &properties);
     ~MyContext();
     
-    virtual pbool onInitialized();
-    virtual pbool onUpdate();
-    virtual void onDestroy();
+    virtual pbool onInitialized() override;
+    virtual pbool onUpdate() override;
+    virtual void onDestroy() override;
     
-    virtual pbool onKeyboard(PEvent *event);
-    virtual void onPanBegin(pint32 x, pint32 y);
-    virtual void onPan(pint32 x, pint32 y, pint32 dx, pint32 dy);
-    virtual void onPanEnd(pint32 x, pint32 y, pint32 dx, pint32 dy);
+    virtual void onKeyboard(puint32 state, puint32 key, puint32 scancode) override;
+    virtual void onPanBegin(pint32 x, pint32 y) override;
+    virtual void onPan(pint32 x, pint32 y, pint32 dx, pint32 dy) override;
+    virtual void onPanEnd() override;
 
 private:
     MyScene *m_scene;

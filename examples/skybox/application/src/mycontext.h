@@ -20,11 +20,11 @@ public:
     MyContext(const PContextProperties &properties);
     ~MyContext();
     
-    virtual pbool onInitialized();
-    virtual pbool onUpdate();
-    virtual void onDestroy();
+    virtual pbool onInitialized() override;
+    virtual pbool onUpdate() override;
+    virtual void onDestroy() override;
     
-    virtual pbool onKeyboard(PEvent *event);
+    virtual void onKeyboard(puint32 state, puint32 key, puint32 scancode) override;
 
 private:
     MyScene *m_scene;

@@ -13,6 +13,8 @@
 #include <PFoundation/pfoundation.h>
 
 
+// FIXME: the point light is buggy
+
 MyScene::MyScene(PContext *context)
     : PScene("my-scene", context)
 {

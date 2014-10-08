@@ -51,31 +51,27 @@ void MyContext::onDestroy()
 {
 }
 
-pbool MyContext::onKeyboard(PEvent *event)
+void MyContext::onKeyboard(puint32 state, puint32 key, puint32 scancode)
 {
-    pint32 key = event->parameter(P_EVENTPARAMETER__KEY_SCANCODE).toInt();
-    pint32 type = event->getType();
-    if (type == P_EVENT__KEYUP)
+    if ((state & 0x03)== P_KEY_DEVICE_STATE_UP)
     {
-        switch (key)
+        switch (scancode)
         {
             case P_KEY_ESC:
                 quit();
-                return true;
+                break;
             case P_KEY_P:
                 m_scene->enablePointLight();
-                return true;
+                break;
             case P_KEY_D:
                 m_scene->enableDirectionalLight();
-                return true;
+                break;
             case P_KEY_S:
                 m_scene->enableSpotLight();
-                return true;
+                break;
             case P_KEY_H:
                 m_scene->switchHighQualityLighting();
-                return true;
+                break;
         }
     }
-
-    return false;
 }

@@ -21,12 +21,15 @@ public:
     MyContext(const PContextProperties &properties);
     ~MyContext();
     
-    virtual pbool onInitialized();
-    virtual pbool onUpdate();
-    virtual void onDestroy();
+    virtual pbool onInitialized() override;
+    virtual pbool onUpdate() override;
+    virtual void onDestroy() override;
     
-    virtual pbool onKeyboard(PEvent *event);
-    virtual pbool onTouch(PEvent *event);
+    virtual void onKeyboard(puint32 state, puint32 key, puint32 scancode) override;
+
+    virtual void onTouchDown(pint32 id, pint32 x, pint32 y) override;
+    virtual void onTouchUp(pint32 id, pint32 x, pint32 y) override;
+    virtual void onTouchMove(pint32 id, pint32 x, pint32 y) override;
 
 private:
     MyScene *m_scene;

@@ -14,8 +14,8 @@
 #include <Paper3D/pscenemanager.h>
 
 #include <PFoundation/pinput.h>
-#include <PFoundation/pevent.h>
-    
+
+
 MyContext::MyContext(const PContextProperties &properties)
     : PContext(properties)
 {
@@ -47,18 +47,15 @@ void MyContext::onDestroy()
 {
 }
 
-pbool MyContext::onKeyboard(PEvent *event)
+void MyContext::onKeyboard(puint32 state, puint32 key, puint32 scancode)
 {
-    pint32 key = event->parameter(P_EVENTPARAMETER__KEY_SCANCODE).toInt();
-    pint32 type = event->getType();
-    if (type == P_EVENT__KEYUP)
-    {
-        switch (key)
-        {
-            case P_KEY_ESC:
-                quit();
-                return true; 
-        }
-    }
-    return true;
+    if ((state & 0x03)== P_KEY_DEVICE_STATE_UP)
+	{
+		switch (scancode)
+		{
+		case P_KEY_ESC:
+            quit();
+			break;
+		}
+	}
 }

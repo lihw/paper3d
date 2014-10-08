@@ -44,48 +44,36 @@ void MyContext::onDestroy()
 {
 }
 
-pbool MyContext::onKeyboard(PEvent *event)
+void MyContext::onKeyboard(puint32 state, puint32 key, puint32 scancode)
 {
-    pint32 key = event->parameter(P_EVENTPARAMETER__KEY_SCANCODE).toInt();
-    pint32 type = event->getType();
-    if (type == P_EVENT__KEYUP)
-    {
-        switch (key)
-        {
-            case P_KEY_ESC:
-                quit();
-                return true; 
-        }
-    }
-    return true;
+    if ((state & 0x03)== P_KEY_DEVICE_STATE_UP)
+	{
+		switch (scancode)
+		{
+		case P_KEY_ESC:
+            quit();
+			break;
+		}
+	}
 }
 
-pbool MyContext::onTouch(PEvent *event)
-{    
-    if (event->getType() == P_EVENT__TOUCH_DOWN)
-    {
-        m_arcball.restart();
-
-        m_scene->setRotating(true);
-    }
-    else if (event->getType() == P_EVENT__TOUCH_MOVE)
-    {
-        puint32 x = event->parameter(P_EVENTPARAMETER__TOUCH_X).toInt();
-        puint32 y = event->parameter(P_EVENTPARAMETER__TOUCH_Y).toInt();
-        const puint32 *r = rect();
-        pfloat32 xx = (pfloat32)x / (pfloat32)(r[2] - 1) * 2.0f - 1.0f;
-        pfloat32 yy = (pfloat32)(r[3] - 1 - y) / (pfloat32)(r[3] - 1) * 2.0f - 1.0f;
-        m_arcball.updateMouse(xx, yy);
-
-        m_scene->rotate(m_arcball.getRotationMatrix());
-    }
-    else if (event->getType() == P_EVENT__TOUCH_UP)
-    {
-        m_scene->setRotating(false);
-    }
-
-    return true;
+void MyContext::onTouchDown(pint32 id, pint32 x, pint32 y)
+{
+    m_arcball.restart();
+    m_scene->setRotating(true);
 }
 
+void MyContext::onTouchMove(pint32 id, pint32 x, pint32 y) 
+{
+    const puint32 *r = rect();
+    pfloat32 xx = (pfloat32)x / (pfloat32)(r[2] - 1) * 2.0f - 1.0f;
+    pfloat32 yy = (pfloat32)(r[3] - 1 - y) / (pfloat32)(r[3] - 1) * 2.0f - 1.0f;
+    m_arcball.updateMouse(xx, yy);
 
+    m_scene->rotate(m_arcball.rotation());
+}
 
+void MyContext::onTouchUp(pint32 id, pint32 x, pint32 y)
+{
+    m_scene->setRotating(false);
+}

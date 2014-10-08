@@ -2,7 +2,7 @@
   <parameters>
     <parameter name="mvp" uniform="MVP" source="transform"/>
     <parameter name="normal" uniform="NormalMatrix" source="transform"/>
-    <parameter name="world" uniform="MV" source="transform"/>
+    <parameter name="mv" uniform="MV" source="transform"/>
     <parameter name="position" uniform="CameraPosition" source="camera"/>
     <parameter name="albedo" uniform="Albedo" source="material"/>
     <parameter name="shininess" uniform="Shininess" source="material"/>

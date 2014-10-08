@@ -12,7 +12,7 @@
 #include <Paper3D/pscene.h>
 
 class PContext;
-struct PMatrix3x3;
+struct PQuaternion;
 class PDrawable;
 class PDirectionalLight;
 class PRenderPass;
@@ -25,7 +25,7 @@ public:
     ~MyScene();
 
     virtual void update();
-    void rotate(const PMatrix3x3 &matrix);
+    void rotate(const PQuaternion &quat);
     void setRotating(pbool rotating);
 
 private:

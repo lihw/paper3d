@@ -14,6 +14,7 @@
 
 class PContext;
 class PRenderPass;
+class PFrameBuffer;
 
 class MyScene : public PScene
 {

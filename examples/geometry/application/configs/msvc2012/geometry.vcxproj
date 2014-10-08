@@ -32,15 +32,9 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\..\..\..\configs\msvc2012\paper3d.props" />
-    <Import Project="..\..\..\..\..\configs\msvc2012\gles20.props" />
-    <Import Project="..\..\..\..\..\configs\msvc2012\application.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
-    <Import Project="..\..\..\..\..\configs\msvc2012\paper3d.props" />
-    <Import Project="..\..\..\..\..\configs\msvc2012\gles20.props" />
-    <Import Project="..\..\..\..\..\configs\msvc2012\application.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -66,19 +60,20 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <CallingConvention>Cdecl</CallingConvention>
       <CompileAs>Default</CompileAs>
+      <AdditionalIncludeDirectories>$(FIPAPER3D)\include;$(FITECH)\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>paper3d.lib;pplatform.lib;pfoundation.lib;zlib.lib;libpng.lib;tinyxml.lib;libEGL.lib;libGLESv2.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(FITECH)\lib\msvc2012\Debug;$(FIPAPER3D)\lib\msvc2012\Debug;$(FITECH)\3rdparty\platforms\msvc2012\libpng\lib\Debug\;$(FITECH)\3rdparty\platforms\msvc2012\tinyxml\lib\Debug\;$(FITECH)\3rdparty\platforms\msvc2012\zlib\lib\Debug\;$(FITECH)\3rdparty\platforms\msvc2012\gles20\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent />
     <PostBuildEvent>
-      <Command>copy $(TechRoot)\bin\msvc2012\libEGL.dll $(OutDir)
-copy $(TechRoot)\bin\msvc2012\libGLESv2.dll $(OutDir)
-$(TechRoot)\..\Tools\bin\msvc2012\archiver.exe -o $(OutDir)\$(ProjectName).par $(ProjectDir)..\..\res
+      <Command>copy $(FITECH)\bin\msvc2012\libEGL.dll $(OutDir)
+copy $(FITECH)\bin\msvc2012\libGLESv2.dll $(OutDir)
+$(FIPAPER3D)\Tools\bin\msvc2012\archiver.exe -o $(OutDir)\$(ProjectName).par $(ProjectDir)..\..\res
 copy $(OutDir)\$(ProjectName).par $(ProjectDir)..\..\res
 </Command>
     </PostBuildEvent>
@@ -94,20 +89,22 @@ copy $(OutDir)\$(ProjectName).par $(ProjectDir)..\..\res
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <CompileAs>Default</CompileAs>
+      <AdditionalIncludeDirectories>$(FIPAPER3D)\include;$(FITECH)\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(FITECH)\lib\msvc2012\Release;$(FIPAPER3D)\lib\msvc2012\Release;$(FITECH)\3rdparty\platforms\msvc2012\libpng\lib\Release\;$(FITECH)\3rdparty\platforms\msvc2012\tinyxml\lib\Release\;$(FITECH)\3rdparty\platforms\msvc2012\zlib\lib\Release\;$(FITECH)\3rdparty\platforms\msvc2012\gles20\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>paper3d.lib;pplatform.lib;pfoundation.lib;zlib.lib;libpng.lib;tinyxml.lib;libEGL.lib;libGLESv2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(TechRoot)\bin\msvc2012\libEGL.dll $(OutDir)
-copy $(TechRoot)\bin\msvc2012\libGLESv2.dll $(OutDir)
-$(TechRoot)\..\Tools\bin\msvc2012\archiver.exe -o $(OutDir)\$(ProjectName).par $(ProjectDir)..\..\res
-copy $(OutDir)\$(ProjectName).par $(ProjectDir)..\..\res
-</Command>
+      <Command>copy $(FITECH)\bin\msvc2012\libEGL.dll $(OutDir)
+copy $(FITECH)\bin\msvc2012\libGLESv2.dll $(OutDir)
+$(FIPAPER3D)\Tools\bin\msvc2012\archiver.exe -o $(OutDir)\$(ProjectName).par $(ProjectDir)..\..\res
+copy $(OutDir)\$(ProjectName).par $(ProjectDir)..\..\res</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\Tech\src\platform\win32\main.cpp" />
+    <ClCompile Include="..\..\src\main.cpp" />
     <ClCompile Include="..\..\src\mycontext.cpp" />
     <ClCompile Include="..\..\src\myscene.cpp" />
     <ClCompile Include="..\..\src\pmain.cpp">

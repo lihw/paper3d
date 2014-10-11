@@ -19,6 +19,12 @@ MyContext::MyContext(const PContextProperties &properties)
     : PContext(properties)
 {
     m_scene = P_NULL;
+
+    m_anglexzTarget = 0;
+    m_angleyTarget  = 0;
+    m_anglexz       = 0;
+    m_angley        = 0;
+    
 }
 
 MyContext::~MyContext()
@@ -32,11 +38,22 @@ pbool MyContext::onInitialized()
     sceneMgr->addScene(m_scene);
     sceneMgr->setMainScene(m_scene);
 
+    PGestureManager *gestureMgr = gestureManager();
+    gestureMgr->setGestureEnabled(P_GESTURE_TYPE_PAN, true);
+
     return true;
 }
 
 pbool MyContext::onUpdate()
 {
+    const pfloat32 it1 = 0.85f;
+    const pfloat32 itt1 = 1.0f - it1;
+
+    m_anglexz = m_anglexz * it1 + m_anglexzTarget * itt1;
+    m_angley  = m_angley * it1 + m_angleyTarget * itt1;
+
+    m_scene->rotate(m_anglexz, m_angley, 0);
+    
     return true;
 }
 
@@ -57,23 +74,23 @@ void MyContext::onKeyboard(puint32 state, puint32 key, puint32 scancode)
 	}
 }
 
-void MyContext::onTouchDown(pint32 id, pint32 x, pint32 y)
+void MyContext::onPanBegin(pint32 x, pint32 y)
 {
-    m_arcball.restart();
     m_scene->setRotating(true);
 }
 
-void MyContext::onTouchMove(pint32 id, pint32 x, pint32 y) 
+void MyContext::onPan(pint32 x, pint32 y, pint32 dx, pint32 dy) 
 {
-    const puint32 *r = rect();
-    pfloat32 xx = (pfloat32)x / (pfloat32)(r[2] - 1) * 2.0f - 1.0f;
-    pfloat32 yy = (pfloat32)(r[3] - 1 - y) / (pfloat32)(r[3] - 1) * 2.0f - 1.0f;
-    m_arcball.updateMouse(xx, yy);
-
-    m_scene->rotate(m_arcball.rotation());
+    m_anglexzTarget += dy * 0.008f;
+    m_angleyTarget  += dx * 0.008f;
 }
 
-void MyContext::onTouchUp(pint32 id, pint32 x, pint32 y)
+void MyContext::onPanEnd()
 {
     m_scene->setRotating(false);
+
+    m_anglexzTarget = 0;
+    m_angleyTarget  = 0;
+    m_anglexz       = 0;
+    m_angley        = 0;
 }

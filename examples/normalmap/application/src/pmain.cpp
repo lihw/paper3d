@@ -26,7 +26,7 @@ void pMain(int argc, char* argv[])
         contextProperties.m_windowWidth = 1024;
         contextProperties.m_windowHeight = 768;
         contextProperties.m_multisamples = 2;
-        contextProperties.m_maxFps = 30;
+        contextProperties.m_maxFps = 60;
 #elif defined P_ANDROID
 		contextProperties.m_windowWidth = 0xffffffff;
         contextProperties.m_windowHeight = 0xffffffff;

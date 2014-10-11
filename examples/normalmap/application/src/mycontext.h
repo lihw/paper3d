@@ -11,7 +11,6 @@
 
 #include <PFoundation/pcontext.h>
 #include <PFoundation/pcontextproperties.h>
-#include <PFoundation/parcball.h>
 
 class MyScene;
 
@@ -27,13 +26,17 @@ public:
     
     virtual void onKeyboard(puint32 state, puint32 key, puint32 scancode) override;
 
-    virtual void onTouchDown(pint32 id, pint32 x, pint32 y) override;
-    virtual void onTouchUp(pint32 id, pint32 x, pint32 y) override;
-    virtual void onTouchMove(pint32 id, pint32 x, pint32 y) override;
+    virtual void onPanBegin(pint32 x, pint32 y) override;
+    virtual void onPan(pint32 x, pint32 y, pint32 dx, pint32 dy) override;
+    virtual void onPanEnd() override;
 
 private:
     MyScene *m_scene;
-    PArcball m_arcball;
+
+    pfloat32 m_anglexzTarget;
+    pfloat32 m_angleyTarget;
+    pfloat32 m_anglexz;
+    pfloat32 m_angley;
 };
 
 #endif

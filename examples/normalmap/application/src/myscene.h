@@ -25,7 +25,7 @@ public:
     ~MyScene();
 
     virtual void update();
-    void rotate(const PQuaternion &quat);
+    void rotate(pfloat32 rx, pfloat32 ry, pfloat32 rz);
     void setRotating(pbool rotating);
 
 private:
@@ -37,6 +37,7 @@ private:
     PRenderPass         *m_shadowPass;
 
     pbool                m_rotating;
+    PVector3             m_rotation;
 };
 
 #endif

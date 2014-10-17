@@ -256,12 +256,13 @@ pbool PDrawable::unpack(const PXmlElement* xmlElement)
         PLOG_ERROR("There is no valid geometry for PDrawable in this xml node.");
     }
 
-    pbool ret = PObject::unpack(xmlElement);
+	pbool ret = PObject::unpack(xmlElement);
 
-	// The default value of visibility is true
+    // The PObject:unpack() will set the visiblity to false as the propertybool's default
+    // value is false. However, for PDrawable, the default value of visibility is true.
 	m_visible = true;
 
-	return ret;
+    return ret;
 }
 
 void PDrawable::prepareRender(PRenderState *renderState)

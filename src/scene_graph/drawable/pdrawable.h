@@ -68,7 +68,7 @@ public:
     // Generate the model->camera space transformation 4x4 matrix.
     virtual void calculateModelCameraMatrix(const PMatrix4x4 &cameraMatrix, pfloat32 *out_matrix);
 
-    virtual pbool unpack(const PXmlElement* xmlElement);
+    virtual pbool unpack(const PXmlElement* xmlElement) override;
 
     static PDrawable *create(const pchar *name, PDrawable *parent, 
         const pchar *geometry, const pchar *material);

@@ -47,7 +47,7 @@ public:
     void setParent(PNode *parent); 
     void setName(const char *name);
     
-    virtual pbool unpack(const PXmlElement* xmlElement);
+    virtual pbool unpack(const PXmlElement* xmlElement) override;
 
     class iterator
     {
